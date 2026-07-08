@@ -1,0 +1,33 @@
+# pfmezcal.com — PF Distribution
+# All legitimate search engines and AI assistants are welcome to crawl this public site.
+
+User-agent: *
+Allow: /
+
+# Explicit permission for Google's AI systems (Gemini grounding & AI features)
+User-agent: Google-Extended
+Allow: /
+
+# Explicit permission for major AI assistants and their user-initiated fetchers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+Sitemap: https://pfmezcal.com/sitemap.xml
