@@ -518,6 +518,9 @@
   .aw-pop .awp-g{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:flex-start}
   .aw-pop .awp-g img{display:block;width:calc(50% - 3px);height:auto;border:1px solid var(--hair);border-radius:4px;background:var(--noir-2);box-shadow:0 16px 44px rgba(0,0,0,.55)}
   .aw-pop .awp-g img:only-child{width:72%}
+  .aw-pop.wide{width:auto;max-width:min(760px,94vw)}
+  .aw-pop.wide .awp-g{flex-wrap:nowrap}
+  .aw-pop.wide .awp-g img{width:auto;height:160px}
   @media (hover:none){.aw-pop{display:none!important}}
 
   /* prevent horizontal wiggle on phones */
@@ -1118,7 +1121,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       if(y<m)y=e.clientY+24;
       if(y+h>innerHeight-m)y=Math.max(m,innerHeight-h-m);
       pop.style.left=x+'px';pop.style.top=y+'px';}
-    function penter(list,title,e){if(!pop)pbuild();
+    function penter(list,title,e,wide){if(!pop)pbuild();pop.classList.toggle('wide',!!wide);
       if(pht){clearTimeout(pht);pht=null;}
       var alt=title.replace(/"/g,'&quot;');
       pgrid.innerHTML=list.map(function(s){return '<img src="'+s+'" alt="'+alt+'" loading="eager">';}).join('');
@@ -1172,7 +1175,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       if(key!=='forbes'&&canHover){
         /* desktop: hover shows a small floating preview; no click needed */
         row.classList.add('has-p');
-        row.addEventListener('mouseenter',function(e){penter(G[key],title,e);});
+        row.addEventListener('mouseenter',function(e){penter(G[key],title,e,key==='lv');});
         row.addEventListener('mousemove',pmove);
         row.addEventListener('mouseleave',pleave);
         return;
