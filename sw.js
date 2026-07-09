@@ -1,4 +1,4 @@
-const C='pfd-v8';
+const C='pfd-v9';
 const ASSETS=['/','index.html','es.html','hi.html','zh.html','images/hero-bottle.jpg','images/favicon.png','images/icon-192.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});

@@ -1105,13 +1105,14 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       lv:['images/award-lv-1.JPG','images/award-lv-2.jpg','images/award-lv-3.jpg'],
       sf:['images/award-sf-1_7.jpg','images/award-sf-2.jpg','images/award-sf-3.jpg','images/award-sf-4.jpg'],
       la:['images/award-la-2.jpg','images/award-la-3.jpg'],
-      sip:['images/award-sip-1.jpg','images/award-sip-2.jpg','images/award-sip-3.jpg','images/award-sip-4.jpg','images/award-sip-5.jpg']
+      sip:['images/award-sip-1.jpg','images/award-sip-2.jpg','images/award-sip-3.jpg','images/award-sip-4.jpg','images/award-sip-5.jpg'],
+      sfd:['images/award-sf-4.jpg','images/award-sip-2.jpg','images/award-sip-3.jpg']
     };
     var FORBES=[
       {u:'https://www.forbes.com/sites/joemicallef/2023/11/02/the-worlds-best-mezcals-from-the-las-vegas-global-spirit-awards/',t:"The World's Best Mezcals From The Las Vegas Global Spirit Awards"},
       {u:'https://www.forbes.com/sites/joemicallef/2023/05/08/the-top-tequila-and-mezcal-from-the-2023-san-francisco-world-spirits-competition/',t:"The Top Tequila And Mezcal From The 2023 San Francisco World Spirits Competition"}
     ];
-    var MAP=['lv','sf','la','sip','sf','forbes']; /* row order is identical in every language */
+    var MAP=['lv','sf','la','sip','sfd','forbes']; /* row order is identical in every language */
     var rows=document.querySelectorAll('.awards .aw');if(!rows.length)return;
     /* --- hover preview (desktop): small picture follows the cursor --- */
     var canHover=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
