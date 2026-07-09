@@ -577,8 +577,9 @@ if(target&&target!=='en'&&SUP[target]){location.replace(SUP[target]+location.has
   /* ===== Hero campaign rotation (kept from the Cartier pass) ===== */
   .hero-img img{transition:opacity 1.8s ease}
   /* Awards hover preview window */
-  #awPrev{position:fixed;left:0;top:0;z-index:390;width:210px;height:210px;border-radius:4px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(.9);transition:opacity .28s ease,transform .28s cubic-bezier(.2,.7,.3,1);border:1px solid var(--hair);box-shadow:0 26px 70px rgba(0,0,0,.55);background:var(--noir-2)}
-  #awPrev img{width:100%;height:100%;object-fit:cover}
+  #awPrev{position:fixed;left:0;top:0;z-index:390;display:flex;align-items:center;gap:10px;padding:10px;border-radius:4px;pointer-events:none;opacity:0;transform:scale(.92);transition:opacity .28s ease,transform .28s cubic-bezier(.2,.7,.3,1);border:1px solid var(--hair);box-shadow:0 26px 70px rgba(0,0,0,.55);background:var(--noir-2)}
+  #awPrev img{width:150px;height:150px;object-fit:cover;flex:none;border-radius:3px;display:block}
+  @media (max-width:1100px){#awPrev img{width:110px;height:110px}}
   #awPrev.on{opacity:1;transform:scale(1)}
 </style>
 <script>
@@ -1194,9 +1195,9 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     var MAP=['lv','sf','la','sip','sf','forbes']; /* row order is identical in every language */
     var PRV=null;
     if(!rMotion&&window.matchMedia&&matchMedia('(pointer:fine)').matches){
-      var pv=document.createElement('div');pv.id='awPrev';pv.innerHTML='<img alt="">';document.body.appendChild(pv);
-      PRV={el:pv,img:pv.querySelector('img'),move:function(e){
-        var x=Math.min(e.clientX+26,innerWidth-226),y=Math.min(Math.max(e.clientY-105,12),innerHeight-226);
+      var pv=document.createElement('div');pv.id='awPrev';document.body.appendChild(pv);
+      PRV={el:pv,set:function(list){var h='';for(var j=0;j<list.length;j++)h+='<img alt="" src="'+list[j]+'">';pv.innerHTML=h;},move:function(e){
+        var x=Math.min(Math.max(e.clientX+26,12),innerWidth-pv.offsetWidth-12),y=Math.min(Math.max(e.clientY-105,12),innerHeight-pv.offsetHeight-12);
         pv.style.left=x+'px';pv.style.top=y+'px';}};
     }
     var rows=document.querySelectorAll('.awards .aw');if(!rows.length)return;
@@ -1250,7 +1251,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       row.addEventListener('click',act);
       row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
       if(PRV&&key!=='forbes'){
-        row.addEventListener('pointerenter',function(){PRV.img.src=G[key][0];PRV.el.classList.add('on');});
+        row.addEventListener('pointerenter',function(){PRV.set(G[key]);PRV.el.classList.add('on');});
         row.addEventListener('pointermove',function(e){PRV.move(e);});
         row.addEventListener('pointerleave',function(){PRV.el.classList.remove('on');});
         row.addEventListener('click',function(){PRV.el.classList.remove('on');});
@@ -1292,7 +1293,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       var r=g.createRadialGradient(64,64,4,64,64,64);
       r.addColorStop(0,color);r.addColorStop(1,'rgba(0,0,0,0)');
       g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
-    var S1=sprite('rgba(198,196,190,0.5)'),S2=sprite('rgba(148,146,142,0.42)');
+    var S1=sprite('rgba(172,170,164,0.5)'),S2=sprite('rgba(120,118,114,0.42)');
     var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
     var P=[],MAX=fine?90:26,running=false,lastAmb=0;
     function puff(x,y,amb){if(P.length>=MAX){P.shift();}
