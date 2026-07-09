@@ -476,6 +476,10 @@
   @media (prefers-reduced-motion:reduce){#smoke{display:none}}
   /* ===== Hero campaign rotation (kept from the Cartier pass) ===== */
   .hero-img img{transition:opacity 1.8s ease}
+  /* Awards hover preview window */
+  #awPrev{position:fixed;left:0;top:0;z-index:390;width:210px;height:210px;border-radius:4px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(.9);transition:opacity .28s ease,transform .28s cubic-bezier(.2,.7,.3,1);border:1px solid var(--hair);box-shadow:0 26px 70px rgba(0,0,0,.55);background:var(--noir-2)}
+  #awPrev img{width:100%;height:100%;object-fit:cover}
+  #awPrev.on{opacity:1;transform:scale(1)}
 </style>
 <script>
 /* ANALYTICS: paste your Google Analytics Measurement ID below (looks like G-AB12CD34EF).
@@ -721,6 +725,13 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       {u:'https://www.forbes.com/sites/joemicallef/2023/05/08/the-top-tequila-and-mezcal-from-the-2023-san-francisco-world-spirits-competition/',t:"The Top Tequila And Mezcal From The 2023 San Francisco World Spirits Competition"}
     ];
     var MAP=['lv','sf','la','sip','sf','forbes']; /* row order is identical in every language */
+    var PRV=null;
+    if(!rMotion&&window.matchMedia&&matchMedia('(pointer:fine)').matches){
+      var pv=document.createElement('div');pv.id='awPrev';pv.innerHTML='<img alt="">';document.body.appendChild(pv);
+      PRV={el:pv,img:pv.querySelector('img'),move:function(e){
+        var x=Math.min(e.clientX+26,innerWidth-226),y=Math.min(Math.max(e.clientY-105,12),innerHeight-226);
+        pv.style.left=x+'px';pv.style.top=y+'px';}};
+    }
     var rows=document.querySelectorAll('.awards .aw');if(!rows.length)return;
     var lbx=null,img=null,cnt=null,ttl=null,cur=[],ci=0,curTitle='',ct=null;
     function build(){
@@ -771,6 +782,12 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       var act=function(){if(key==='forbes')openLinks(title);else open(G[key],title);};
       row.addEventListener('click',act);
       row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+      if(PRV&&key!=='forbes'){
+        row.addEventListener('pointerenter',function(){PRV.img.src=G[key][0];PRV.el.classList.add('on');});
+        row.addEventListener('pointermove',function(e){PRV.move(e);});
+        row.addEventListener('pointerleave',function(){PRV.el.classList.remove('on');});
+        row.addEventListener('click',function(){PRV.el.classList.remove('on');});
+      }
     })(rows[i],MAP[i]);}
   })();
   /* ===== Lando layer ===== */
@@ -808,7 +825,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       var r=g.createRadialGradient(64,64,4,64,64,64);
       r.addColorStop(0,color);r.addColorStop(1,'rgba(0,0,0,0)');
       g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
-    var S1=sprite('rgba(239,231,214,0.55)'),S2=sprite('rgba(194,116,58,0.4)');
+    var S1=sprite('rgba(198,196,190,0.5)'),S2=sprite('rgba(148,146,142,0.42)');
     var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
     var P=[],MAX=fine?90:26,running=false,lastAmb=0;
     function puff(x,y,amb){if(P.length>=MAX){P.shift();}
@@ -823,7 +840,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       for(var i=P.length-1;i>=0;i--){var p=P[i];p.life++;
         if(p.life>p.max){P.splice(i,1);continue;}
         p.ph+=p.w;p.x+=p.vx+Math.sin(p.ph+p.y*0.004)*0.35;p.y+=p.vy;p.r+=p.gr;
-        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*0.34;
+        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*0.3;
         cx.globalAlpha=al;cx.drawImage(p.sp,p.x-p.r,p.y-p.r,p.r*2,p.r*2);}
       cx.globalAlpha=1;requestAnimationFrame(loop);
     }
