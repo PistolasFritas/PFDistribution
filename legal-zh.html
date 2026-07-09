@@ -466,6 +466,7 @@
   /* Awards hover preview window */
   #awPrev{position:fixed;left:0;top:0;z-index:390;display:flex;align-items:center;gap:10px;padding:10px;border-radius:4px;pointer-events:none;opacity:0;transform:scale(.92);transition:opacity .28s ease,transform .28s cubic-bezier(.2,.7,.3,1);border:1px solid var(--hair);box-shadow:0 26px 70px rgba(0,0,0,.55);background:var(--noir-2)}
   #awPrev img{width:150px;height:150px;object-fit:cover;flex:none;border-radius:3px;display:block}
+  #awPrev img.fit{object-fit:contain;background:#0B0908}
   @media (max-width:1100px){#awPrev img{width:110px;height:110px}}
   #awPrev.on{opacity:1;transform:scale(1)}
 </style>
@@ -704,7 +705,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     var PRV=null;
     if(!rMotion&&window.matchMedia&&matchMedia('(pointer:fine)').matches){
       var pv=document.createElement('div');pv.id='awPrev';document.body.appendChild(pv);
-      PRV={el:pv,set:function(list){var h='';for(var j=0;j<list.length;j++)h+='<img alt="" src="'+list[j]+'">';pv.innerHTML=h;},move:function(e){
+      PRV={el:pv,set:function(list){var h='';for(var j=0;j<list.length;j++)h+='<img alt="" onload="if(this.naturalWidth>this.naturalHeight*1.35||this.naturalHeight>this.naturalWidth*1.35)this.classList.add(\'fit\')" src="'+list[j]+'">';pv.innerHTML=h;},move:function(e){
         var x=Math.min(Math.max(e.clientX+26,12),innerWidth-pv.offsetWidth-12),y=Math.min(Math.max(e.clientY-105,12),innerHeight-pv.offsetHeight-12);
         pv.style.left=x+'px';pv.style.top=y+'px';}};
     }
@@ -801,7 +802,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       var r=g.createRadialGradient(64,64,4,64,64,64);
       r.addColorStop(0,color);r.addColorStop(1,'rgba(0,0,0,0)');
       g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
-    var S1=sprite('rgba(172,170,164,0.5)'),S2=sprite('rgba(120,118,114,0.42)');
+    var S1=sprite('rgba(146,144,139,0.5)'),S2=sprite('rgba(96,94,90,0.42)');
     var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
     var P=[],MAX=fine?90:26,running=false,lastAmb=0;
     function puff(x,y,amb){if(P.length>=MAX){P.shift();}
