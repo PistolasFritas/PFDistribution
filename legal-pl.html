@@ -489,6 +489,11 @@
   [dir="rtl"] .kin-auto{animation-name:kinmobr}
   @keyframes kinmobr{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(100% - 100vw),0,0)}}
   @media (prefers-reduced-motion:reduce){.kin-auto{animation:none}}
+  /* ===== Animated logo in the header ===== */
+  .brand{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center}
+  .brand-vid{grid-row:1/span 2;grid-column:1;height:50px;width:50px;object-fit:cover;border-radius:4px;display:block;background:var(--noir-2)}
+  .brand .pf,.brand .sub{grid-column:2}
+  @media (max-width:680px){.brand-vid{height:36px;width:36px}.brand{column-gap:9px}}
 </style>
 <script>
 /* ANALYTICS: paste your Google Analytics Measurement ID below (looks like G-AB12CD34EF).
@@ -506,7 +511,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="index.html"><span class="pf">PF Distribution</span><span class="sub">Williamsburg, Missouri · Tylko licencjonowany handel</span></a>
+    <a class="brand" href="index.html"><video class="brand-vid" src="images/logo-evolution.mp4" muted playsinline autoplay preload="auto" aria-hidden="true" onerror="this.style.display='none'"></video><span class="pf">PF Distribution</span><span class="sub">Williamsburg, Missouri · Tylko licencjonowany handel</span></a>
     <nav class="nav-links" id="navlinks"><a href="index.html#about">Dystrybucja</a><a href="index.html#mezcals">Mezcale</a><a href="index.html#serve">Kogo obsługujemy</a><a href="index.html#compliance">Zgodność</a><a href="legal-pl.html">Nota prawna</a></nav>
     <div class="nav-cta">
       <div class="lang" id="langDD"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Wybierz język">PL<span class="car" aria-hidden="true"></span></button><div class="lang-menu" id="langMenu" role="menu"><a role="menuitem" href="legal.html" hreflang="en" lang="en">English<span class="code">EN</span></a><a role="menuitem" href="legal-es.html" hreflang="es" lang="es">Español<span class="code">ES</span></a><a role="menuitem" href="legal-hi.html" hreflang="hi" lang="hi">हिन्दी<span class="code">HI</span></a><a role="menuitem" href="legal-zh.html" hreflang="zh" lang="zh">中文<span class="code">ZH</span></a><a role="menuitem" href="legal-ja.html" hreflang="ja" lang="ja">日本語<span class="code">JA</span></a><a role="menuitem" href="legal-fr.html" hreflang="fr" lang="fr">Français<span class="code">FR</span></a><a role="menuitem" href="legal-de.html" hreflang="de" lang="de">Deutsch<span class="code">DE</span></a><a role="menuitem" class="on" href="legal-pl.html" hreflang="pl" lang="pl">Polski<span class="code">PL</span></a><a role="menuitem" href="legal-ru.html" hreflang="ru" lang="ru">Русский<span class="code">RU</span></a><a role="menuitem" href="legal-ar.html" hreflang="ar" lang="ar" dir="rtl">العربية<span class="code">AR</span></a><a role="menuitem" href="legal-it.html" hreflang="it" lang="it">Italiano<span class="code">IT</span></a><a role="menuitem" href="legal-pt.html" hreflang="pt" lang="pt">Português<span class="code">PT</span></a></div></div>
@@ -918,6 +923,19 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
         cur=nxt;
       },8000);
     },3800);
+  })();
+  /* Animated header logo: plays the evolution once per visit, then rests on the final mark */
+  (function(){var v=document.querySelector('.brand-vid');if(!v)return;
+    v.muted=true;
+    var played=false;try{played=sessionStorage.getItem('pfLogoPlayed')==='1';}catch(e){}
+    function toEnd(){try{if(v.duration)v.currentTime=Math.max(0,v.duration-0.05);}catch(e){}v.pause();}
+    if(rMotion||played){
+      v.removeAttribute('autoplay');v.autoplay=false;v.pause();
+      if(v.readyState>=1)toEnd();else v.addEventListener('loadedmetadata',toEnd);
+    }else{
+      v.addEventListener('ended',function(){try{sessionStorage.setItem('pfLogoPlayed','1');}catch(e){}});
+      var p=v.play?v.play():null;if(p&&p.catch)p.catch(function(){});
+    }
   })();
 </script>
 <script>
