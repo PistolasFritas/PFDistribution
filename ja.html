@@ -529,22 +529,14 @@
   .bigquote{font-family:var(--serif);font-style:italic;font-size:clamp(30px,5vw,58px);line-height:1.3;color:var(--cream);text-align:center;max-width:940px;margin:0 auto}
   .q-att{margin-top:28px;text-align:center;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--copper)}
   @media (prefers-reduced-motion:reduce){.kin-track{transform:none!important}}
-  /* ===== Cartier layer: vitrine tilt, hero rotation, ornaments, page veil ===== */
-  .mz-grid>.mz.reveal.tilt{transition:transform .16s ease-out;transition-delay:0s;will-change:transform}
-  .mz.tilt .mz-ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,40%),rgba(239,231,214,.13),transparent 58%);z-index:3;pointer-events:none;opacity:0;transition:opacity .35s ease}
-  .mz.tilt:hover .mz-ph::after{opacity:1}
+  /* ===== Immersive layer: palenque smoke, magnetic CTAs, scroll hairline ===== */
+  #smoke{position:fixed;inset:0;z-index:998;pointer-events:none;mix-blend-mode:screen}
+  #sprog{position:fixed;top:0;left:0;right:0;height:2px;z-index:260;background:linear-gradient(90deg,var(--copper),var(--gold));transform:scaleX(0);transform-origin:left;pointer-events:none}
+  [dir="rtl"] #sprog{transform-origin:right}
+  .btn.mag{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
+  @media (prefers-reduced-motion:reduce){#smoke{display:none}}
+  /* ===== Hero campaign rotation (kept from the Cartier pass) ===== */
   .hero-img img{transition:opacity 1.8s ease}
-  .orn{display:flex;align-items:center;gap:18px;max-width:min(560px,72vw);margin:78px auto 0;padding:0 24px}
-  .orn span{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,98,.45))}
-  .orn span:last-child{background:linear-gradient(90deg,rgba(201,168,98,.45),transparent)}
-  .orn i{font-style:normal;color:var(--gold);font-size:8px;opacity:.85;line-height:1}
-  #veil{position:fixed;inset:0;background:var(--noir);opacity:0;pointer-events:none;transition:opacity .32s ease;z-index:500}
-  #veil.on{opacity:1;pointer-events:auto}
-  @media (prefers-reduced-motion:reduce){
-    .mz-grid>.mz.reveal.tilt{transform:none!important}
-    .mz.tilt .mz-ph::after{content:none}
-    #veil{display:none}
-  }
 </style>
 <script>
 /* ANALYTICS: paste your Google Analytics Measurement ID below (looks like G-AB12CD34EF).
@@ -623,9 +615,6 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 </div>
 
 <!-- ============ ABOUT PF DISTRIBUTION ============ -->
-
-<div class="orn" aria-hidden="true"><span></span><i>◆</i><span></span></div>
-
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -890,9 +879,6 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 </section>
 
 <!-- ============ WHO WE SERVE ============ -->
-
-<div class="orn" aria-hidden="true"><span></span><i>◆</i><span></span></div>
-
 <section class="sec-2" id="serve">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -915,9 +901,6 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 </section>
 
 <!-- ============ CONTACT ============ -->
-
-<div class="orn" aria-hidden="true"><span></span><i>◆</i><span></span></div>
-
 <section id="contact">
   <div class="wrap">
     <div class="contact-grid">
@@ -1241,19 +1224,73 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(paint);}},{passive:true});
     paint();
   })();
-  /* ===== Cartier layer ===== */
-  /* Vitrine tilt: bottle cards follow the cursor with a moving glare (desktop only) */
+  /* ===== Immersive layer ===== */
+  /* Palenque smoke: warm vapor trails the cursor; ambient wisps rise on touch devices */
+  (function(){if(rMotion)return;
+    var cv=document.createElement('canvas');cv.id='smoke';document.body.appendChild(cv);
+    var cx=cv.getContext('2d');if(!cx)return;
+    var DPR=Math.min(window.devicePixelRatio||1,1.5),W=0,H=0;
+    function size(){W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';cx.setTransform(DPR,0,0,DPR,0,0);}
+    size();addEventListener('resize',size,{passive:true});
+    function sprite(color){var s=document.createElement('canvas');s.width=s.height=128;var g=s.getContext('2d');
+      var r=g.createRadialGradient(64,64,4,64,64,64);
+      r.addColorStop(0,color);r.addColorStop(1,'rgba(0,0,0,0)');
+      g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
+    var S1=sprite('rgba(239,231,214,0.55)'),S2=sprite('rgba(194,116,58,0.4)');
+    var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
+    var P=[],MAX=fine?90:26,running=false,lastAmb=0;
+    function puff(x,y,amb){if(P.length>=MAX){P.shift();}
+      var a=Math.random()*Math.PI*2;
+      P.push({x:x,y:y,vx:Math.cos(a)*(amb?0.08:0.25),vy:-(0.25+Math.random()*(amb?0.3:0.45)),
+        r:(amb?26:14)+Math.random()*18,gr:0.10+Math.random()*0.12,
+        life:0,max:(amb?340:220)+Math.random()*120,
+        sp:Math.random()<0.32?S2:S1,ph:Math.random()*6.28,w:0.004+Math.random()*0.006});}
+    function loop(ts){
+      if(!P.length){running=false;cx.clearRect(0,0,W,H);return;}
+      running=true;cx.clearRect(0,0,W,H);
+      for(var i=P.length-1;i>=0;i--){var p=P[i];p.life++;
+        if(p.life>p.max){P.splice(i,1);continue;}
+        p.ph+=p.w;p.x+=p.vx+Math.sin(p.ph+p.y*0.004)*0.35;p.y+=p.vy;p.r+=p.gr;
+        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*0.34;
+        cx.globalAlpha=al;cx.drawImage(p.sp,p.x-p.r,p.y-p.r,p.r*2,p.r*2);}
+      cx.globalAlpha=1;requestAnimationFrame(loop);
+    }
+    function wake(){if(!running){running=true;requestAnimationFrame(loop);}}
+    if(fine){var lx=0,ly=0,has=false;
+      addEventListener('pointermove',function(e){
+        var dx=e.clientX-lx,dy=e.clientY-ly;
+        if(!has||dx*dx+dy*dy>140){lx=e.clientX;ly=e.clientY;has=true;
+          puff(e.clientX+(Math.random()*14-7),e.clientY+(Math.random()*14-7),false);wake();}
+      },{passive:true});}
+    setInterval(function(){
+      if(document.hidden)return;
+      var y=window.pageYOffset||0;
+      if(y<innerHeight*0.9){puff(innerWidth*(0.3+Math.random()*0.4),innerHeight*0.92,true);wake();}
+    },fine?1600:750);
+    document.addEventListener('visibilitychange',function(){if(document.hidden){P.length=0;}});
+  })();
+  /* Magnetic CTAs: buttons lean toward the cursor */
   (function(){if(rMotion||!(window.matchMedia&&matchMedia('(pointer:fine)').matches))return;
-    var cards=document.querySelectorAll('.mz-grid>.mz');if(!cards.length)return;
-    for(var i=0;i<cards.length;i++)(function(c){
-      var ph=c.querySelector('.mz-ph');
-      c.addEventListener('pointerenter',function(){c.classList.add('tilt');});
-      c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();
-        var x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-        c.style.transform='perspective(950px) rotateX('+((0.5-y)*6).toFixed(2)+'deg) rotateY('+((x-0.5)*7).toFixed(2)+'deg)';
-        if(ph){ph.style.setProperty('--gx',(x*100).toFixed(1)+'%');ph.style.setProperty('--gy',(y*100).toFixed(1)+'%');}});
-      c.addEventListener('pointerleave',function(){c.style.transform='';setTimeout(function(){c.classList.remove('tilt');},420);});
-    })(cards[i]);
+    var bs=document.querySelectorAll('.btn');
+    for(var i=0;i<bs.length;i++)(function(b){
+      b.classList.add('mag');
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))/r.width,dy=(e.clientY-(r.top+r.height/2))/r.height;
+        b.style.transform='translate('+(dx*10).toFixed(1)+'px,'+(dy*8).toFixed(1)+'px)';});
+      b.addEventListener('pointerleave',function(){b.style.transform='';});
+    })(bs[i]);
+  })();
+  /* Scroll hairline: copper progress along the top edge */
+  (function(){
+    var pr=document.createElement('div');pr.id='sprog';document.body.appendChild(pr);
+    var tick=false;
+    function paint(){tick=false;
+      var d=document.documentElement,max=d.scrollHeight-innerHeight;
+      var p=max>0?Math.min(1,(window.pageYOffset||0)/max):0;
+      pr.style.transform='scaleX('+p.toFixed(4)+')';}
+    addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(paint);}},{passive:true});
+    addEventListener('resize',function(){if(!tick){tick=true;requestAnimationFrame(paint);}},{passive:true});
+    paint();
   })();
   /* Hero campaign rotation: bottle -> palenque -> warehouse, slow dissolves */
   (function(){if(rMotion)return;var hb=document.querySelector('.hero-img');if(!hb)return;
@@ -1282,20 +1319,6 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
         cur=nxt;
       },8000);
     },3800);
-  })();
-  /* Page-transition veil: internal navigation fades through noir */
-  (function(){if(rMotion)return;
-    var v=document.createElement('div');v.id='veil';document.body.appendChild(v);
-    addEventListener('pageshow',function(){v.classList.remove('on');});
-    document.addEventListener('click',function(e){
-      var a=e.target&&e.target.closest?e.target.closest('a'):null;if(!a)return;
-      if(e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||a.target==='_blank')return;
-      var href=a.getAttribute('href')||'';
-      if(!href||href.charAt(0)==='#'||href.indexOf(':')>-1)return;
-      if(href.indexOf('.html')===-1&&href!=='/')return;
-      e.preventDefault();v.classList.add('on');
-      setTimeout(function(){location.href=href;},330);
-    },true);
   })();
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
