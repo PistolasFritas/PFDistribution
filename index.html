@@ -556,6 +556,13 @@ if(target&&target!=='en'&&SUP[target]){location.replace(SUP[target]+location.has
   .aw-pop.on{opacity:1;transform:none}
   .aw-pop .awp-g{display:flex;flex-wrap:nowrap;gap:6px;justify-content:center;align-items:center}
   .aw-pop .awp-g img{display:block;width:96px;height:96px;object-fit:contain;border:1px solid var(--hair);border-radius:4px;background:#f2eee7;box-shadow:0 16px 44px rgba(0,0,0,.55)}
+  .fb-pop[hidden]{display:none!important}
+  .fb-pop{position:fixed;z-index:390;width:min(430px,92vw);opacity:0;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease}
+  .fb-pop.on{opacity:1;transform:none}
+  .fb-pop a{display:block;background:var(--noir-2);border:1px solid var(--hair);border-radius:4px;padding:13px 40px 13px 16px;color:var(--cream);text-decoration:none;font-family:var(--serif);font-size:15px;line-height:1.35;transition:border-color .25s,background .25s;position:relative;margin-bottom:8px;box-shadow:0 16px 44px rgba(0,0,0,.55)}
+  .fb-pop a:hover{border-color:var(--copper);background:rgba(24,18,12,1)}
+  .fb-pop .ly{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:5px}
+  .fb-pop .ar{position:absolute;right:14px;top:13px;color:var(--cream-dim);font-family:var(--sans)}
   @media (hover:none){.aw-pop{display:none!important}}
 
   /* prevent horizontal wiggle on phones */
@@ -1163,6 +1170,22 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       pop.hidden=false;pmove(e);
       requestAnimationFrame(function(){pop.classList.add('on');});}
     function pleave(){if(!pop)return;pop.classList.remove('on');pht=setTimeout(function(){pop.hidden=true;},230);}
+    /* Forbes press links: hover popup (desktop) */
+    var fbp=null,fbht=null;
+    function fbBuild(){fbp=document.createElement('div');fbp.className='fb-pop';fbp.hidden=true;
+      fbp.innerHTML=FORBES.map(function(a){return '<a href="'+a.u+'" target="_blank" rel="noopener"><span class="ly">Forbes \u00b7 2023</span>'+a.t+'<span class="ar">\u2197</span></a>';}).join('');
+      document.body.appendChild(fbp);
+      fbp.addEventListener('mouseenter',function(){if(fbht){clearTimeout(fbht);fbht=null;}});
+      fbp.addEventListener('mouseleave',fbHide);}
+    function fbShow(row){if(!fbp)fbBuild();
+      if(fbht){clearTimeout(fbht);fbht=null;}
+      fbp.hidden=false;
+      var r=row.getBoundingClientRect(),m=12,w=fbp.offsetWidth||430,h=fbp.offsetHeight||140;
+      var x=Math.min(Math.max(m,r.left),innerWidth-w-m);
+      var y=r.bottom+8;if(y+h>innerHeight-m)y=Math.max(m,r.top-h-8);
+      fbp.style.left=x+'px';fbp.style.top=y+'px';
+      requestAnimationFrame(function(){fbp.classList.add('on');});}
+    function fbHide(){if(!fbp)return;fbht=setTimeout(function(){fbp.classList.remove('on');setTimeout(function(){fbp.hidden=true;},220);},280);}
     var lbx=null,img=null,cnt=null,ttl=null,cur=[],ci=0,curTitle='',ct=null;
     function build(){
       lbx=document.createElement('div');lbx.className='lbx';lbx.setAttribute('role','dialog');lbx.setAttribute('aria-modal','true');
@@ -1179,6 +1202,14 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
         else if(e.key==='ArrowLeft')step(-1);
         else if(e.key==='ArrowRight')step(1);
       });
+      /* swipe left/right to change pictures on touch screens */
+      var swx=0,swy=0;
+      lbx.addEventListener('touchstart',function(e){if(e.touches.length!==1)return;swx=e.touches[0].clientX;swy=e.touches[0].clientY;},{passive:true});
+      lbx.addEventListener('touchend',function(e){
+        if(lbx.hidden||img.hidden||cur.length<2)return;
+        var dx=e.changedTouches[0].clientX-swx,dy=e.changedTouches[0].clientY-swy;
+        if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5){step(dx<0?1:-1);}
+      },{passive:true});
       lbx.hidden=true;
     }
     function show(){img.src=cur[ci];img.alt=curTitle;cnt.textContent=(ci+1)+' / '+cur.length;ttl.textContent=curTitle;}
@@ -1207,6 +1238,13 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     for(var i=0;i<rows.length&&i<MAP.length;i++){(function(row,key){
       if(!key)return;
       var comp=row.querySelector('.comp');var title=comp?comp.textContent.trim():'';
+      if(canHover&&key==='forbes'){
+        /* desktop: hover shows the two Forbes article links */
+        row.classList.add('has-p');
+        row.addEventListener('mouseenter',function(){fbShow(row);});
+        row.addEventListener('mouseleave',fbHide);
+        return;
+      }
       if(key!=='forbes'&&canHover){
         /* desktop: hover shows a small floating preview; no click needed */
         row.classList.add('has-p');
