@@ -1,47 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-/* Language auto-detect (root page only).
-   Priority: saved manual choice > browser language > timezone region > English.
-   Runs before first paint; never re-runs within the same browsing session. */
-(function(){try{
-var SUP={en:"index.html",es:"es.html",hi:"hi.html",zh:"zh.html",ja:"ja.html",fr:"fr.html",de:"de.html",pl:"pl.html",bs:"bs.html",hr:"bs.html",sr:"bs.html",ru:"ru.html",ar:"ar.html",it:"it.html",pt:"pt.html"};
-var seen=null;try{seen=sessionStorage.getItem('pfSeen');}catch(e){}
-if(seen)return; /* mid-session navigation back to the English home page: respect it */
-if(/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent||""))return; /* let search/AI crawlers index each URL as-is */
-var saved=null;try{saved=localStorage.getItem('pfLang');}catch(e){}
-var target=null;
-if(saved&&SUP[saved]){target=saved;}
-else{
-  var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||navigator.userLanguage||'']);
-  for(var i=0;i<langs.length&&!target;i++){var p=String(langs[i]).toLowerCase().split('-')[0];if(SUP[p])target=p;}
-  if(!target){
-    var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){}
-    var T=[
-      [/^America\/(Mexico|Cancun|Merida|Monterrey|Tijuana|Chihuahua|Hermosillo|Mazatlan|Ojinaga|Matamoros|Bogota|Lima|Santiago|Caracas|Guatemala|El_Salvador|Managua|Tegucigalpa|Panama|Havana|Santo_Domingo|Puerto_Rico|Asuncion|Montevideo|La_Paz|Guayaquil|Costa_Rica|Argentina)|^Europe\/Madrid|^Atlantic\/Canary|^Africa\/Ceuta/,'es'],
-      [/^America\/(Sao_Paulo|Bahia|Fortaleza|Recife|Manaus|Belem|Cuiaba|Campo_Grande|Boa_Vista|Porto_Velho|Rio_Branco|Maceio|Araguaina|Santarem|Noronha)|^Europe\/Lisbon|^Atlantic\/(Madeira|Azores)|^Africa\/(Luanda|Maputo)/,'pt'],
-      [/^Europe\/(Paris|Monaco)|^Africa\/(Abidjan|Dakar|Bamako|Ouagadougou|Niamey|Kinshasa|Brazzaville|Douala|Libreville|Algiers|Tunis|Casablanca)/,'fr'],
-      [/^Europe\/(Berlin|Vienna|Zurich|Busingen|Vaduz)/,'de'],
-      [/^Asia\/Tokyo/,'ja'],
-      [/^Europe\/Sarajevo/,'bs'],
-      [/^Europe\/Warsaw/,'pl'],
-      [/^Europe\/(Rome|Vatican|San_Marino)/,'it'],
-      [/^Europe\/(Moscow|Kaliningrad|Samara|Volgograd|Saratov|Kirov|Astrakhan|Ulyanovsk)|^Asia\/(Yekaterinburg|Novosibirsk|Krasnoyarsk|Irkutsk|Omsk|Vladivostok|Yakutsk|Magadan|Sakhalin|Kamchatka|Chita|Barnaul|Tomsk)/,'ru'],
-      [/^Asia\/(Riyadh|Dubai|Kuwait|Qatar|Bahrain|Baghdad|Amman|Beirut|Damascus|Aden|Muscat|Gaza|Hebron)|^Africa\/(Cairo|Khartoum|Tripoli|Nouakchott|Mogadishu|Djibouti)/,'ar'],
-      [/^Asia\/(Kolkata|Calcutta)/,'hi'],
-      [/^Asia\/(Shanghai|Urumqi|Hong_Kong|Macau|Taipei|Chongqing|Harbin)/,'zh']
-    ];
-    for(var j=0;j<T.length&&!target;j++){if(T[j][0].test(tz))target=T[j][1];}
-  }
-}
-if(target&&target!=='en'&&SUP[target]){location.replace(SUP[target]+location.hash);}
-}catch(e){}})();
-</script>
-<title>PF Distribution — Missouri Distribution Partner for Mr. Mezcal | Licensed Trade Only</title>
-<meta name="description" content="PF Distribution is the licensed Missouri distribution partner for Mr. Mezcal — award-winning, single-source mezcal from Oaxaca. We work only with licensed trade accounts: bars, restaurants, hotels, liquor stores, and retailers. Not available to consumers.">
+<title>PF Distribution — Distribucijski partner Mr. Mezcala za Missouri | Samo licencirana trgovina</title>
+<meta name="description" content="PF Distribution je licencirani distribucijski partner brenda Mr. Mezcal za Missouri — nagrađivani mezcal iz jednog izvora iz Oaxace. Sarađujemo isključivo s licenciranim poslovnim kupcima: barovima, restoranima, hotelima, prodavnicama pića i trgovcima. Nije dostupno za krajnje potrošače.">
 <meta name="theme-color" content="#0E0C0A">
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,7 +16,7 @@ if(target&&target!=='en'&&SUP[target]){location.replace(SUP[target]+location.has
 <meta name="geo.placename" content="Williamsburg, Missouri">
 <meta name="geo.position" content="38.9126;-91.7043">
 <meta name="ICBM" content="38.9126, -91.7043">
-<link rel="canonical" href="https://pfmezcal.com/">
+<link rel="canonical" href="https://pfmezcal.com/bs.html">
 <link rel="alternate" hreflang="en" href="https://pfmezcal.com/">
 <link rel="alternate" hreflang="es" href="https://pfmezcal.com/es.html">
 <link rel="alternate" hreflang="hi" href="https://pfmezcal.com/hi.html">
@@ -69,23 +32,20 @@ if(target&&target!=='en'&&SUP[target]){location.replace(SUP[target]+location.has
 <link rel="alternate" hreflang="pt" href="https://pfmezcal.com/pt.html">
 <link rel="alternate" hreflang="x-default" href="https://pfmezcal.com/">
 <link rel="preload" as="image" href="images/hero-bottle.jpg" fetchpriority="high">
-<meta name="keywords" content="mezcal distributor Missouri, wholesale mezcal Missouri, Mr. Mezcal distributor, liquor distributor Williamsburg Missouri, alcohol wholesaler Missouri, mezcal wholesale St. Louis, licensed trade mezcal supplier, three-tier alcohol distributor Missouri, PF Distribution">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WholesaleStore", "name": "PF Distribution", "legalName": "Pistolas Fritas", "description": "Licensed alcohol wholesaler in Williamsburg, Missouri, and the exclusive Missouri distribution partner for Mr. Mezcal. Sales to licensed trade accounts only — bars, restaurants, hotels, liquor stores, grocery stores, private clubs, event venues, and caterers. No direct-to-consumer sales.", "url": "https://pfmezcal.com/", "logo": "https://pfmezcal.com/images/apple-touch-icon.png", "image": "https://pfmezcal.com/images/og-image.jpg", "email": "gerardo@mrmezcal.mx", "telephone": "+1-636-579-9374", "address": {"@type": "PostalAddress", "addressLocality": "Williamsburg", "addressRegion": "MO", "addressCountry": "US"}, "geo": {"@type": "GeoCoordinates", "latitude": 38.9126, "longitude": -91.7043}, "areaServed": {"@type": "State", "name": "Missouri"}, "brand": {"@type": "Brand", "name": "Mr. Mezcal", "url": "https://mrmezcal.com"}, "knowsLanguage": ["en", "es", "hi", "zh", "ja", "fr", "de", "pl", "bs", "ru", "ar", "it", "pt"], "priceRange": "Wholesale only"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Mr. Mezcal varieties distributed by PF Distribution in Missouri", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Mr. Mezcal Espadín", "brand": {"@type": "Brand", "name": "Mr. Mezcal"}, "category": "Mezcal", "description": "Artesanal single-agave mezcal, Agave angustifolia, 42% ABV. Wholesale to licensed Missouri trade accounts."}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Mr. Mezcal Tobalá", "brand": {"@type": "Brand", "name": "Mr. Mezcal"}, "category": "Mezcal", "description": "Wild-agave mezcal, Agave potatorum, 42% ABV. Best Mezcal, Las Vegas Global Spirit Awards Platinum 96/100."}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Mr. Mezcal Cuishe", "brand": {"@type": "Brand", "name": "Mr. Mezcal"}, "category": "Mezcal", "description": "Wild-agave mezcal, Agave karwinskii, 42% ABV. Rare expression, limited wholesale stock."}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Product", "name": "Mr. Mezcal Tepeztate", "brand": {"@type": "Brand", "name": "Mr. Mezcal"}, "category": "Mezcal", "description": "Wild-agave mezcal, Agave marmorata (25+ years), 42% ABV. Rare expression, limited wholesale stock."}}]}</script>
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PF Distribution">
-<meta property="og:title" content="PF Distribution — Missouri Distribution Partner for Mr. Mezcal">
-<meta property="og:description" content="Licensed Missouri wholesaler and exclusive distribution partner for Mr. Mezcal. Licensed trade accounts only — we do not sell to consumers.">
-<meta property="og:url" content="https://pfmezcal.com/">
+<meta property="og:title" content="PF Distribution — Distribucijski partner Mr. Mezcala za Missouri">
+<meta property="og:description" content="Licencirani veletrgovac iz Missourija i ekskluzivni distribucijski partner brenda Mr. Mezcal. Samo licencirani poslovni kupci — ne prodajemo krajnjim potrošačima.">
+<meta property="og:url" content="https://pfmezcal.com/bs.html">
 <meta property="og:image" content="https://pfmezcal.com/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="bs_BA">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PF Distribution — Missouri Distribution Partner for Mr. Mezcal">
-<meta name="twitter:description" content="Licensed Missouri wholesaler and exclusive distribution partner for Mr. Mezcal. Licensed trade accounts only — we do not sell to consumers.">
+<meta name="twitter:title" content="PF Distribution — Distribucijski partner Mr. Mezcala za Missouri">
+<meta name="twitter:description" content="Licencirani veletrgovac iz Missourija i ekskluzivni distribucijski partner brenda Mr. Mezcal. Samo licencirani poslovni kupci — ne prodajemo krajnjim potrošačima.">
 <meta name="twitter:image" content="https://pfmezcal.com/images/og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -609,9 +569,9 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 </script>
 </head>
 <body>
-<a class="skip" href="#contact">Skip to trade inquiry</a>
+<a class="skip" href="#contact">Pređi na poslovni upit</a>
 
-<div class="topbar"><div class="wrap"><p>Licensed trade &amp; wholesale only — PF Distribution does not sell to individual consumers. To buy Mr. Mezcal, visit <a href="https://mrmezcal.com" target="_blank" rel="noopener">mrmezcal.com →</a></p></div></div>
+<div class="topbar"><div class="wrap"><p>Samo licencirana trgovina i veleprodaja — PF Distribution ne prodaje pojedinačnim potrošačima. Za kupovinu Mr. Mezcala posjetite <a href="https://mrmezcal.com" target="_blank" rel="noopener">mrmezcal.com →</a></p></div></div>
 
 <!-- ============ NAV ============ -->
 <header class="nav">
@@ -619,21 +579,21 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     <a class="brand" href="#top">
       <video class="brand-vid" src="images/logo-evolution.mp4" muted playsinline autoplay preload="auto" aria-hidden="true" onerror="this.style.display='none'"></video>
       <span class="pf">PF Distribution</span>
-      <span class="sub">Williamsburg, Missouri · Licensed Trade Only</span>
+      <span class="sub">Williamsburg, Missouri · Samo licencirana trgovina</span>
     </a>
     <nav class="nav-links" id="navlinks">
-      <a href="#about">Distribution</a>
+      <a href="#about">Distribucija</a>
       <a href="#mezcal">Mr. Mezcal</a>
-      <a href="#mezcals">The Mezcals</a>
-      <a href="#availability">Wholesale Inventory</a>
-      <a href="#awards">Awards</a>
-      <a href="#serve">Who We Serve</a>
-      <a href="#compliance">Compliance</a>
+      <a href="#mezcals">Mezcali</a>
+      <a href="#availability">Veleprodajne zalihe</a>
+      <a href="#awards">Nagrade</a>
+      <a href="#serve">Koga snabdijevamo</a>
+      <a href="#compliance">Usklađenost</a>
     </nav>
     <div class="nav-cta">
-      <div class="lang" id="langDD"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">EN<span class="car" aria-hidden="true"></span></button><div class="lang-menu" id="langMenu" role="menu"><a role="menuitem" class="on" href="index.html" hreflang="en" lang="en">English<span class="code">EN</span></a><a role="menuitem" href="es.html" hreflang="es" lang="es">Español<span class="code">ES</span></a><a role="menuitem" href="hi.html" hreflang="hi" lang="hi">हिन्दी<span class="code">HI</span></a><a role="menuitem" href="zh.html" hreflang="zh" lang="zh">中文<span class="code">ZH</span></a><a role="menuitem" href="ja.html" hreflang="ja" lang="ja">日本語<span class="code">JA</span></a><a role="menuitem" href="fr.html" hreflang="fr" lang="fr">Français<span class="code">FR</span></a><a role="menuitem" href="de.html" hreflang="de" lang="de">Deutsch<span class="code">DE</span></a><a role="menuitem" href="pl.html" hreflang="pl" lang="pl">Polski<span class="code">PL</span></a><a role="menuitem" href="bs.html" hreflang="bs" lang="bs">Bosanski<span class="code">BS</span></a><a role="menuitem" href="ru.html" hreflang="ru" lang="ru">Русский<span class="code">RU</span></a><a role="menuitem" href="ar.html" hreflang="ar" lang="ar" dir="rtl">العربية<span class="code">AR</span></a><a role="menuitem" href="it.html" hreflang="it" lang="it">Italiano<span class="code">IT</span></a><a role="menuitem" href="pt.html" hreflang="pt" lang="pt">Português<span class="code">PT</span></a></div></div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
-      <a class="btn btn-solid" href="#contact">Wholesale Inquiries</a>
+      <div class="lang" id="langDD"><button type="button" class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Odaberite jezik">BS<span class="car" aria-hidden="true"></span></button><div class="lang-menu" id="langMenu" role="menu"><a role="menuitem" href="index.html" hreflang="en" lang="en">English<span class="code">EN</span></a><a role="menuitem" href="es.html" hreflang="es" lang="es">Español<span class="code">ES</span></a><a role="menuitem" href="hi.html" hreflang="hi" lang="hi">हिन्दी<span class="code">HI</span></a><a role="menuitem" href="zh.html" hreflang="zh" lang="zh">中文<span class="code">ZH</span></a><a role="menuitem" href="ja.html" hreflang="ja" lang="ja">日本語<span class="code">JA</span></a><a role="menuitem" href="fr.html" hreflang="fr" lang="fr">Français<span class="code">FR</span></a><a role="menuitem" href="de.html" hreflang="de" lang="de">Deutsch<span class="code">DE</span></a><a role="menuitem" href="pl.html" hreflang="pl" lang="pl">Polski<span class="code">PL</span></a><a role="menuitem" class="on" href="bs.html" hreflang="bs" lang="bs">Bosanski<span class="code">BS</span></a><a role="menuitem" href="ru.html" hreflang="ru" lang="ru">Русский<span class="code">RU</span></a><a role="menuitem" href="ar.html" hreflang="ar" lang="ar" dir="rtl">العربية<span class="code">AR</span></a><a role="menuitem" href="it.html" hreflang="it" lang="it">Italiano<span class="code">IT</span></a><a role="menuitem" href="pt.html" hreflang="pt" lang="pt">Português<span class="code">PT</span></a></div></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Otvori meni">Meni</button>
+      <a class="btn btn-solid" href="#contact">Veleprodajni upiti</a>
     </div>
   </div>
 </header>
@@ -643,34 +603,34 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Single-source mezcal · Oaxaca, México</p>
-        <h1>The Exclusive Missouri Distributor of <em>Mr. Mezcal.</em></h1>
-        <p class="lead">PF Distribution is a licensed liquor distributor serving bars, restaurants, hotels, liquor stores, grocery stores, private clubs, event venues, caterers, and other licensed retailers. <strong style="color:var(--cream);font-weight:400">We do not sell directly to consumers.</strong></p>
+        <p class="eyebrow">Mezcal iz jednog izvora · Oaxaca, México</p>
+        <h1>Ekskluzivni distributer <em>Mr. Mezcala</em> za Missouri.</h1>
+        <p class="lead">PF Distribution je licencirani distributer alkoholnih pića koji snabdijeva barove, restorane, hotele, prodavnice pića, trgovine prehrambenom robom, privatne klubove, prostore za događaje, ketering kompanije i druge licencirane trgovce. <strong style="color:var(--cream);font-weight:400">Ne prodajemo direktno krajnjim potrošačima.</strong></p>
         <div class="hero-cta">
-          <a class="btn btn-solid" href="#contact">Request Wholesale Pricing <span class="arr">→</span></a>
-          <a class="btn btn-line" href="#contact">Become a Retail Partner</a>
+          <a class="btn btn-solid" href="#contact">Zatražite veleprodajne cijene <span class="arr">→</span></a>
+          <a class="btn btn-line" href="#contact">Postanite maloprodajni partner</a>
         </div>
-        <div class="trade-badge"><span class="dot"></span> Available for licensed retailers &amp; on-premise accounts · Wholesale inquiries only</div>
-        <p class="hero-refer">Are you a consumer? PF Distribution is wholesale only — to buy Mr. Mezcal, visit <a href="https://mrmezcal.com" target="_blank" rel="noopener">mrmezcal.com →</a></p>
+        <div class="trade-badge"><span class="dot"></span> Dostupno licenciranim trgovcima i ugostiteljima · Samo veleprodajni upiti</div>
+        <p class="hero-refer">Vi ste potrošač? PF Distribution posluje isključivo veleprodajno — za kupovinu Mr. Mezcala posjetite <a href="https://mrmezcal.com" target="_blank" rel="noopener">mrmezcal.com →</a></p>
       </div>
       <div class="hero-img imgph reveal">
-        <span class="phlabel"><b>Image 1 — Hero bottle</b>Tall, vertical Mr. Mezcal bottle on a dark, moody background.<i>images/hero-bottle.jpg · ~1000 × 1400px</i></span>
-        <img fetchpriority="high" decoding="async" src="images/hero-bottle.jpg" alt="Mr. Mezcal single-source mezcal bottle" onerror="this.style.display='none'">
+        <span class="phlabel"><b>Slika 1 — Glavna boca</b>Visoka, uspravna boca Mr. Mezcala na tamnoj, atmosferičnoj pozadini.<i>images/hero-bottle.jpg · ~1000 × 1400px</i></span>
+        <img fetchpriority="high" decoding="async" src="images/hero-bottle.jpg" alt="Boca mezcala iz jednog izvora Mr. Mezcal" onerror="this.style.display='none'">
         <span class="ph-chip">Williamsburg · Missouri</span>
       </div>
     </div>
   </div>
 </section>
 
-<div class="b2b-notice"><div class="wrap"><p><b>Trade &amp; wholesale only.</b> PF Distribution sells alcoholic products only to licensed businesses and approved alcohol retail, hospitality, event, catering, and wholesale accounts. We do not sell directly to individual consumers. Consumers looking to buy Mr. Mezcal can find it through licensed retailers via <a href="https://mrmezcal.com" target="_blank" rel="noopener" style="color:var(--copper);text-decoration:none">mrmezcal.com</a>.</p></div></div>
+<div class="b2b-notice"><div class="wrap"><p><b>Samo trgovina i veleprodaja.</b> PF Distribution prodaje alkoholne proizvode isključivo licenciranim firmama i odobrenim kupcima iz maloprodaje alkohola, ugostiteljstva, industrije događaja, keteringa i veleprodaje. Ne prodajemo direktno pojedinačnim potrošačima. Potrošači koji žele kupiti Mr. Mezcal mogu ga pronaći kod licenciranih trgovaca putem <a href="https://mrmezcal.com" target="_blank" rel="noopener" style="color:var(--copper);text-decoration:none">mrmezcal.com</a>.</p></div></div>
 
 <div class="strip">
   <div class="strip-in">
-    <span>Exclusively <b>Mr. Mezcal</b></span>
-    <span>Single-source · <b>Oaxaca</b></span>
-    <span><b>Platinum 96/100</b> · Double Gold</span>
+    <span>Isključivo <b>Mr. Mezcal</b></span>
+    <span>Jedan izvor · <b>Oaxaca</b></span>
+    <span><b>Platina 96/100</b> · Duplo zlato</span>
     <span>Williamsburg, <b>Missouri</b></span>
-    <span><b>Licensed trade only</b></span>
+    <span><b>Samo licencirana trgovina</b></span>
   </div>
 </div>
 
@@ -678,19 +638,19 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">The Distributor</p>
-      <h2>A single house, devoted to one extraordinary <em>mezcal.</em></h2>
+      <p class="eyebrow">Distributer</p>
+      <h2>Jedna kuća, posvećena jednom izuzetnom <em>mezcalu.</em></h2>
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p>PF Distribution is a licensed alcohol wholesaler based in Williamsburg, Missouri. As the Missouri distribution partner for Mr. Mezcal, we bring a family-made, single-source Oaxacan mezcal to the establishments that define how Missouri drinks.</p>
-        <p>We work strictly with licensed trade accounts — bars, restaurants, hotels, liquor stores, grocery retailers, private clubs, event venues, caterers, and other licensed alcohol businesses. We do not sell directly to consumers, and we operate fully within the three-tier alcohol distribution system.</p>
-        <p class="legal">Operating as Pistolas Fritas · Williamsburg, Missouri</p>
+        <p>PF Distribution je licencirani veletrgovac alkoholnim pićima sa sjedištem u Williamsburgu, Missouri. Kao distribucijski partner brenda Mr. Mezcal za Missouri, donosimo porodični mezcal iz jednog izvora iz Oaxace u lokale koji definišu šta Missouri pije.</p>
+        <p>Sarađujemo isključivo s licenciranim poslovnim kupcima — barovima, restoranima, hotelima, prodavnicama pića, trgovcima prehrambenom robom, privatnim klubovima, prostorima za događaje, ketering kompanijama i drugim licenciranim firmama iz industrije alkohola. Ne prodajemo direktno potrošačima i poslujemo u potpunosti unutar trostepenog sistema distribucije alkohola.</p>
+        <p class="legal">Posluje kao Pistolas Fritas · Williamsburg, Missouri</p>
       </div>
       <div class="pillars reveal">
-        <div class="pillar"><div class="pt">Exclusively Mr. Mezcal</div><div class="pd">One brand, given our full attention — not a sprawling catalog.</div></div>
-        <div class="pillar"><div class="pt">Williamsburg, Missouri</div><div class="pd">A licensed in-state wholesale partner for Missouri trade.</div></div>
-        <div class="pillar"><div class="pt">Trade-only, by design</div><div class="pd">Three-tier compliant. Licensed accounts only, never consumers.</div></div>
+        <div class="pillar"><div class="pt">Isključivo Mr. Mezcal</div><div class="pd">Jedan brend i naša puna pažnja — a ne razvučeni katalog.</div></div>
+        <div class="pillar"><div class="pt">Williamsburg, Missouri</div><div class="pd">Licencirani veleprodajni partner u državi, na usluzi trgovini Missourija.</div></div>
+        <div class="pillar"><div class="pt">Samo za trgovinu — namjerno</div><div class="pd">Usklađeni s trostepenim sistemom. Samo licencirani kupci, nikada potrošači.</div></div>
       </div>
     </div>
   </div>
@@ -701,28 +661,28 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
   <div class="wrap">
     <div class="mez-grid">
       <div class="mez-img imgph reveal">
-        <span class="phlabel"><b>Image 2 — Heritage / palenque</b>The maestros at the palenque, agave fields, or an earthen roasting pit in Oaxaca.<i>images/maestros.jpg · ~1100 × 1300px</i></span>
-        <img loading="lazy" decoding="async" src="images/maestros.jpg?v=2" alt="Mr. Mezcal maestros mezcaleros at the palenque in Oaxaca" onerror="this.style.display='none'">
+        <span class="phlabel"><b>Slika 2 — Naslijeđe / palenque</b>Majstori u palenqueu, polja agave ili zemljana peć za pečenje u Oaxaci.<i>images/maestros.jpg · ~1100 × 1300px</i></span>
+        <img loading="lazy" decoding="async" src="images/maestros.jpg?v=2" alt="Majstori mezcalero brenda Mr. Mezcal u palenqueu u Oaxaci" onerror="this.style.display='none'">
         <span class="ph-chip">Santiago Matatlán · Oaxaca</span>
       </div>
       <div class="mez-body reveal">
-        <p class="eyebrow agave">The Mezcal</p>
-        <h2 style="font-size:clamp(32px,4.6vw,54px)">Made by one family. Recognized by those who judge mezcal for a living.</h2>
-        <p style="margin-top:28px">Mr. Mezcal is a family-owned, single-source mezcal from Santiago Matatlán, Oaxaca. Three generations of the same family make it entirely by hand — no industrial machines, no blending plants, and no spirit bought on the open market. Every bottle traces back to one palenque and one family's agave.</p>
-        <p>A 42% ABV artesanal mezcal, made slowly and patiently, that has earned top honors at the competitions buyers and connoisseurs actually watch.</p>
+        <p class="eyebrow agave">Mezcal</p>
+        <h2 style="font-size:clamp(32px,4.6vw,54px)">Pravi ga jedna porodica. Priznat od onih koji mezcal ocjenjuju profesionalno.</h2>
+        <p style="margin-top:28px">Mr. Mezcal je porodični mezcal iz jednog izvora iz Santiago Matatlána u Oaxaci. Tri generacije iste porodice prave ga u potpunosti ručno — bez industrijskih mašina, bez pogona za miješanje i bez alkohola kupljenog na otvorenom tržištu. Svaka boca vodi porijeklo iz jednog palenquea i agave jedne porodice.</p>
+        <p>Zanatski mezcal jačine 42%, pravljen polako i strpljivo, osvojio je najviša priznanja na takmičenjima koja kupci i znalci zaista prate.</p>
         <div class="maestros">
           <span class="m">Maestros · Rodolfo</span>
           <span class="m">Silverio</span>
           <span class="m">Temo</span>
         </div>
-        <a class="ext" href="https://mrmezcal.com" target="_blank" rel="noopener">Full brand information at mrmezcal.com →</a>
+        <a class="ext" href="https://mrmezcal.com" target="_blank" rel="noopener">Sve informacije o brendu na mrmezcal.com →</a>
       </div>
     </div>
     <div class="process reveal">
-      <div class="p"><div class="pn">I</div><div class="pt">Roast</div><div class="pd">Agave roasted underground over wood and stone.</div></div>
-      <div class="p"><div class="pn">II</div><div class="pt">Crush</div><div class="pd">Roasted piñas crushed by tahona stone wheel.</div></div>
-      <div class="p"><div class="pn">III</div><div class="pt">Ferment</div><div class="pd">Naturally fermented in open wooden vats.</div></div>
-      <div class="p"><div class="pn">IV</div><div class="pt">Distill</div><div class="pd">Twice-distilled in copper. Patience is the only machine.</div></div>
+      <div class="p"><div class="pn">I</div><div class="pt">Pečenje</div><div class="pd">Agava pečena pod zemljom na drvetu i kamenu.</div></div>
+      <div class="p"><div class="pn">II</div><div class="pt">Mljevenje</div><div class="pd">Pečene piñe melje kameni točak tahona.</div></div>
+      <div class="p"><div class="pn">III</div><div class="pt">Fermentacija</div><div class="pd">Prirodna fermentacija u otvorenim drvenim kacama.</div></div>
+      <div class="p"><div class="pn">IV</div><div class="pt">Destilacija</div><div class="pd">Dvostruka destilacija u bakru. Strpljenje je jedina mašina.</div></div>
     </div>
   </div>
 </section>
@@ -745,81 +705,81 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section id="mezcals">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">The Mezcals</p>
-      <h2>Four expressions. One maestro mezcalero. <em>Zero shortcuts.</em></h2>
-      <p class="lead">Each varietal is distilled from a single agave — from the everyday classic to rare, wild expressions worth featuring on any list or shelf. All bottlings 42% ABV.</p>
+      <p class="eyebrow">Mezcali</p>
+      <h2>Četiri izraza. Jedan majstor mezcalero. <em>Nula prečica.</em></h2>
+      <p class="lead">Svaka sorta destiliše se iz jedne agave — od svakodnevnog klasika do rijetkih, divljih izraza vrijednih isticanja na svakoj karti i polici. Sva punjenja jačine 42%.</p>
     </div>
     <div class="mz-grid">
 
       <article class="mz reveal">
         <div class="mz-ph imgph">
-          <span class="phlabel"><b>Image 3 — Espadín</b>Single bottle on dark ground.<i>images/espadin.jpg · ~700 × 900px</i></span>
-          <img loading="lazy" decoding="async" src="images/espadin.jpg" alt="Mr. Mezcal Espadín bottle" onerror="this.style.display='none'">
+          <span class="phlabel"><b>Slika 3 — Espadín</b>Jedna boca na tamnoj pozadini.<i>images/espadin.jpg · ~700 × 900px</i></span>
+          <img loading="lazy" decoding="async" src="images/espadin.jpg" alt="Boca Mr. Mezcal Espadín" onerror="this.style.display='none'">
         </div>
         <div class="mz-body">
           <div class="mz-top"><h3>Espadín</h3><span class="abv">42% ABV</span></div>
-          <p class="agave">Agave angustifolia · cultivated</p>
-          <p class="role">The everyday classic — the bartender's pour.</p>
+          <p class="agave">Agave angustifolia · uzgojena</p>
+          <p class="role">Svakodnevni klasik — izbor barmena.</p>
           <div class="notes">
-            <div class="nrow"><span class="nk">Nose</span><span class="nv">Roasted agave, crisp green apple, a soft thread of hearth smoke.</span></div>
-            <div class="nrow"><span class="nk">Palate</span><span class="nv">Rounded and balanced — cooked pineapple, citrus, light salinity.</span></div>
-            <div class="nrow"><span class="nk">Finish</span><span class="nv">Warm and even, built for cocktails.</span></div>
+            <div class="nrow"><span class="nk">Miris</span><span class="nv">Pečena agava, hrskava zelena jabuka, blagi trag dima s ognjišta.</span></div>
+            <div class="nrow"><span class="nk">Okus</span><span class="nv">Zaobljen i uravnotežen — pečeni ananas, citrusi, blaga slanost.</span></div>
+            <div class="nrow"><span class="nk">Završnica</span><span class="nv">Topao i ujednačen, stvoren za koktele.</span></div>
           </div>
-          <span class="tag">Core stock</span>
+          <span class="tag">Osnovna zaliha</span>
         </div>
       </article>
 
       <article class="mz reveal">
         <div class="mz-ph imgph">
-          <span class="phlabel"><b>Image 4 — Tobalá</b>Single bottle on dark ground.<i>images/tobala.jpg · ~700 × 900px</i></span>
-          <img loading="lazy" decoding="async" src="images/tobala.jpg" alt="Mr. Mezcal Tobalá bottle" onerror="this.style.display='none'">
+          <span class="phlabel"><b>Slika 4 — Tobalá</b>Jedna boca na tamnoj pozadini.<i>images/tobala.jpg · ~700 × 900px</i></span>
+          <img loading="lazy" decoding="async" src="images/tobala.jpg" alt="Boca Mr. Mezcal Tobalá" onerror="this.style.display='none'">
         </div>
         <div class="mz-body">
           <div class="mz-top"><h3>Tobalá</h3><span class="abv">42% ABV</span></div>
-          <p class="agave">Agave potatorum · wild</p>
-          <p class="role">Bright, delicate, decorated — the connoisseur's bottle.</p>
+          <p class="agave">Agave potatorum · divlja</p>
+          <p class="role">Svijetao, prefinjen, nagrađivan — boca za znalce.</p>
           <div class="notes">
-            <div class="nrow"><span class="nk">Nose</span><span class="nv">Wild herbs, white flowers, a thread of mineral smoke.</span></div>
-            <div class="nrow"><span class="nk">Palate</span><span class="nv">Green melon, river-stone minerality, a touch of soft pepper.</span></div>
-            <div class="nrow"><span class="nk">Finish</span><span class="nv">Long, clean, gently floral.</span></div>
+            <div class="nrow"><span class="nk">Miris</span><span class="nv">Divlje trave, bijelo cvijeće, trag mineralnog dima.</span></div>
+            <div class="nrow"><span class="nk">Okus</span><span class="nv">Zelena dinja, mineralnost riječnog kamena, dašak blagog bibera.</span></div>
+            <div class="nrow"><span class="nk">Završnica</span><span class="nv">Duga, čista, nježno cvjetna.</span></div>
           </div>
-          <span class="tag">Best Mezcal · Las Vegas Platinum 96/100</span>
+          <span class="tag">Najbolji Mezcal · Las Vegas Platina 96/100</span>
         </div>
       </article>
 
       <article class="mz reveal">
         <div class="mz-ph imgph">
-          <span class="phlabel"><b>Image 5 — Cuishe</b>Single bottle on dark ground.<i>images/cuishe.jpg · ~700 × 900px</i></span>
-          <img loading="lazy" decoding="async" src="images/cuishe.jpg" alt="Mr. Mezcal Cuishe bottle" onerror="this.style.display='none'">
+          <span class="phlabel"><b>Slika 5 — Cuishe</b>Jedna boca na tamnoj pozadini.<i>images/cuishe.jpg · ~700 × 900px</i></span>
+          <img loading="lazy" decoding="async" src="images/cuishe.jpg" alt="Boca Mr. Mezcal Cuishe" onerror="this.style.display='none'">
         </div>
         <div class="mz-body">
           <div class="mz-top"><h3>Cuishe</h3><span class="abv">42% ABV</span></div>
-          <p class="agave">Agave karwinskii · ~18 yrs</p>
-          <p class="role">Savory and mineral — eighteen years in the field before the fire.</p>
+          <p class="agave">Agave karwinskii · ~18 godina</p>
+          <p class="role">Pikantan i mineralan — osamnaest godina u polju prije vatre.</p>
           <div class="notes">
-            <div class="nrow"><span class="nk">Nose</span><span class="nv">Dry earth, fennel, candied citrus peel.</span></div>
-            <div class="nrow"><span class="nk">Palate</span><span class="nv">Vegetal and savory — celery root, minerals, dried herbs.</span></div>
-            <div class="nrow"><span class="nk">Finish</span><span class="nv">Lean and dry, with smoke that lingers.</span></div>
+            <div class="nrow"><span class="nk">Miris</span><span class="nv">Suha zemlja, komorač, kandirana kora citrusa.</span></div>
+            <div class="nrow"><span class="nk">Okus</span><span class="nv">Biljni i pikantan — celer korijen, minerali, sušene trave.</span></div>
+            <div class="nrow"><span class="nk">Završnica</span><span class="nv">Vitka i suha, s dimom koji dugo traje.</span></div>
           </div>
-          <span class="tag">Rare · limited stock</span>
+          <span class="tag">Rijetko · ograničena zaliha</span>
         </div>
       </article>
 
       <article class="mz reveal">
         <div class="mz-ph imgph">
-          <span class="phlabel"><b>Image 6 — Tepeztate</b>Single bottle on dark ground.<i>images/tepeztate.jpg · ~700 × 900px</i></span>
-          <img loading="lazy" decoding="async" src="images/tepeztate.jpg" alt="Mr. Mezcal Tepeztate bottle" onerror="this.style.display='none'">
+          <span class="phlabel"><b>Slika 6 — Tepeztate</b>Jedna boca na tamnoj pozadini.<i>images/tepeztate.jpg · ~700 × 900px</i></span>
+          <img loading="lazy" decoding="async" src="images/tepeztate.jpg" alt="Boca Mr. Mezcal Tepeztate" onerror="this.style.display='none'">
         </div>
         <div class="mz-body">
           <div class="mz-top"><h3>Tepeztate</h3><span class="abv">42% ABV</span></div>
-          <p class="agave">Agave marmorata · wild, 25+ yrs</p>
-          <p class="role">The rarest pour — decades in the making.</p>
+          <p class="agave">Agave marmorata · divlja, 25+ godina</p>
+          <p class="role">Najrjeđe piće — decenije nastajanja.</p>
           <div class="notes">
-            <div class="nrow"><span class="nk">Nose</span><span class="nv">Tropical fruit, fresh jalapeño, wet stone.</span></div>
-            <div class="nrow"><span class="nk">Palate</span><span class="nv">Intense and layered — ripe mango, green chile, herbaceous depth.</span></div>
-            <div class="nrow"><span class="nk">Finish</span><span class="nv">Expansive and peppery.</span></div>
+            <div class="nrow"><span class="nk">Miris</span><span class="nv">Tropsko voće, svježi jalapeño, mokri kamen.</span></div>
+            <div class="nrow"><span class="nk">Okus</span><span class="nv">Intenzivan i slojevit — zreli mango, zelena čili paprika, biljna dubina.</span></div>
+            <div class="nrow"><span class="nk">Završnica</span><span class="nv">Široka i biberasta.</span></div>
           </div>
-          <span class="tag">Rare · limited stock</span>
+          <span class="tag">Rijetko · ograničena zaliha</span>
         </div>
       </article>
 
@@ -831,7 +791,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 
 <section class="quote-band">
   <div class="wrap">
-    <p class="bigquote reveal">“Patience is the only machine.”</p>
+    <p class="bigquote reveal">„Strpljenje je jedina mašina.”</p>
     <p class="q-att reveal">— Santiago Matatlán, Oaxaca</p>
   </div>
 </section>
@@ -839,56 +799,56 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section class="sec-2" id="availability">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow agave">Available now · Missouri trade</p>
-      <h2>Ready to pour. Ready to <em>shelf.</em></h2>
+      <p class="eyebrow agave">Dostupno sada · Trgovina Missourija</p>
+      <h2>Spremno za točenje. Spremno za <em>policu.</em></h2>
     </div>
     <div class="avail-grid">
       <div class="avail-body reveal">
-        <p>Mr. Mezcal is in our Missouri warehouse now and available to licensed trade accounts by the case and by the full pallet, across all four single-agave varieties.</p>
+        <p>Mr. Mezcal je već u našem skladištu u Missouriju i dostupan je licenciranim poslovnim kupcima u sanducima i punim paletama, u sve četiri sorte iz jedne agave.</p>
         <ul class="avail-list">
-          <li><span class="vn">Espadín</span><span class="vs">Core stock</span></li>
-          <li><span class="vn">Tobalá</span><span class="vs">Limited</span></li>
-          <li><span class="vn">Tepeztate</span><span class="vs">Limited</span></li>
-          <li><span class="vn">Cuishe</span><span class="vs">Limited</span></li>
+          <li><span class="vn">Espadín</span><span class="vs">Osnovna zaliha</span></li>
+          <li><span class="vn">Tobalá</span><span class="vs">Ograničeno</span></li>
+          <li><span class="vn">Tepeztate</span><span class="vs">Ograničeno</span></li>
+          <li><span class="vn">Cuishe</span><span class="vs">Ograničeno</span></li>
         </ul>
-        <p class="avail-note">Availability and quantities change with demand. Contact our trade team for current pricing, allocation, and lead times. Wholesale to licensed accounts only — no consumer sales.</p>
+        <p class="avail-note">Dostupnost i količine mijenjaju se s potražnjom. Kontaktirajte naš prodajni tim za aktuelne cijene, alokacije i rokove. Veleprodaja isključivo za licencirane kupce — bez prodaje potrošačima.</p>
       </div>
       <div class="avail-stats reveal">
-        <div class="as"><div class="n">4</div><div class="l">Single-agave varieties</div></div>
-        <div class="as"><div class="n">42%</div><div class="l">ABV · artesanal</div></div>
-        <div class="as"><div class="n">~20</div><div class="l">Pallets in Missouri</div></div>
-        <div class="as"><div class="n">Case<br>+ Pallet</div><div class="l">Order quantities</div></div>
+        <div class="as"><div class="n">4</div><div class="l">Sorte iz jedne agave</div></div>
+        <div class="as"><div class="n">42%</div><div class="l">Jačina · zanatski</div></div>
+        <div class="as"><div class="n">~20</div><div class="l">Paleta u Missouriju</div></div>
+        <div class="as"><div class="n">Sanduk<br>+ Paleta</div><div class="l">Veličine narudžbi</div></div>
       </div>
     </div>
 
   <div class="inv-intro reveal">
-    <p class="eyebrow gold">Current wholesale inventory</p>
-    <p class="inv-meta">1 pallet ≈ 60 cases · 1 case = 6 bottles · quantities approximate</p>
+    <p class="eyebrow gold">Trenutne veleprodajne zalihe</p>
+    <p class="inv-meta">1 paleta ≈ 60 sanduka · 1 sanduk = 6 boca · količine su približne</p>
   </div>
-  <div class="inv-board reveal" role="table" aria-label="Current wholesale inventory">
-    <div class="inv-head" role="row"><span>Variety</span><span>Agave</span><span class="ta-r">Pallets</span><span class="ta-r">Cases</span><span class="ta-r">Bottles</span></div>
+  <div class="inv-board reveal" role="table" aria-label="Trenutne veleprodajne zalihe">
+    <div class="inv-head" role="row"><span>Sorta</span><span>Agava</span><span class="ta-r">Palete</span><span class="ta-r">Sanduci</span><span class="ta-r">Boce</span></div>
     <div class="inv-row" role="row">
       <span class="iv-name">Espadín</span><span class="iv-agave">Agave angustifolia</span>
-      <span class="iv-num" data-l="Pallets">~14</span><span class="iv-num" data-l="Cases">~840</span><span class="iv-num" data-l="Bottles">~5,040</span>
+      <span class="iv-num" data-l="Palete">~14</span><span class="iv-num" data-l="Sanduci">~840</span><span class="iv-num" data-l="Boce">~5,040</span>
     </div>
     <div class="inv-row" role="row">
       <span class="iv-name">Tobalá</span><span class="iv-agave">Agave potatorum</span>
-      <span class="iv-num" data-l="Pallets">~2</span><span class="iv-num" data-l="Cases">~120</span><span class="iv-num" data-l="Bottles">~720</span>
+      <span class="iv-num" data-l="Palete">~2</span><span class="iv-num" data-l="Sanduci">~120</span><span class="iv-num" data-l="Boce">~720</span>
     </div>
     <div class="inv-row" role="row">
       <span class="iv-name">Tepeztate</span><span class="iv-agave">Agave marmorata</span>
-      <span class="iv-num" data-l="Pallets">~2</span><span class="iv-num" data-l="Cases">~120</span><span class="iv-num" data-l="Bottles">~720</span>
+      <span class="iv-num" data-l="Palete">~2</span><span class="iv-num" data-l="Sanduci">~120</span><span class="iv-num" data-l="Boce">~720</span>
     </div>
     <div class="inv-row" role="row">
       <span class="iv-name">Cuishe</span><span class="iv-agave">Agave karwinskii</span>
-      <span class="iv-num" data-l="Pallets">~2</span><span class="iv-num" data-l="Cases">~120</span><span class="iv-num" data-l="Bottles">~720</span>
+      <span class="iv-num" data-l="Palete">~2</span><span class="iv-num" data-l="Sanduci">~120</span><span class="iv-num" data-l="Boce">~720</span>
     </div>
     <div class="inv-total" role="row">
-      <span class="iv-name">Total available</span><span class="iv-agave">Additional inventory may be available depending on current stock</span>
-      <span class="iv-num" data-l="Pallets">~20</span><span class="iv-num" data-l="Cases">~1,200</span><span class="iv-num" data-l="Bottles">~7,200</span>
+      <span class="iv-name">Ukupno dostupno</span><span class="iv-agave">Dodatne zalihe mogu biti dostupne u zavisnosti od trenutnog stanja skladišta</span>
+      <span class="iv-num" data-l="Palete">~20</span><span class="iv-num" data-l="Sanduci">~1,200</span><span class="iv-num" data-l="Boce">~7,200</span>
     </div>
   </div>
-  <p class="inv-note reveal">Inventory figures are approximate and change with demand. Contact our distribution team to confirm live availability, pricing, and lead times. Wholesale inquiries only — licensed accounts.</p>
+  <p class="inv-note reveal">Podaci o zalihama su približni i mijenjaju se s potražnjom. Kontaktirajte naš distribucijski tim da potvrdite trenutnu dostupnost, cijene i rokove. Samo veleprodajni upiti — licencirani kupci.</p>
 
   </div>
 </section>
@@ -900,19 +860,19 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section id="awards">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow gold">Press &amp; Recognition</p>
-      <h2>Awarded by experts. <em>Enjoyed by lovers.</em></h2>
-      <p class="lead">Mr. Mezcal has been recognized at the competitions buyers and connoisseurs follow most closely.</p>
+      <p class="eyebrow gold">Mediji i priznanja</p>
+      <h2>Nagrađen od stručnjaka. <em>Omiljen među ljubiteljima.</em></h2>
+      <p class="lead">Mr. Mezcal je priznat na takmičenjima koja kupci i znalci najpažljivije prate.</p>
     </div>
     <div class="awards reveal">
-      <div class="aw"><div class="medal">PLAT<br>96/100</div><div><div class="comp">Las Vegas Global Spirit Awards</div><div class="what">Best Mezcal · Platinum, 96/100</div></div><div class="yr">2023</div></div>
-      <div class="aw"><div class="medal">DOUBLE<br>GOLD</div><div><div class="comp">SF World Spirits Competition</div><div class="what">Double Gold — all varieties recognized</div></div><div class="yr">2023</div></div>
-      <div class="aw"><div class="medal">BEST IN<br>SHOW</div><div><div class="comp">L.A. Spirits Awards</div><div class="what">Best Mezcal &amp; Best in Show</div></div><div class="yr">2020</div></div>
-      <div class="aw"><div class="medal">PLAT</div><div><div class="comp">SIP Awards</div><div class="what">Platinum</div></div><div class="yr">2024</div></div>
-      <div class="aw"><div class="medal">SILVER</div><div><div class="comp">SF World Design Competition</div><div class="what">Silver — Bottle Design</div></div><div class="yr">2022</div></div>
-      <div class="aw"><div class="medal">PRESS</div><div><div class="comp">Forbes</div><div class="what">Featured twice</div></div><div class="yr">—</div></div>
+      <div class="aw"><div class="medal">PLAT<br>96/100</div><div><div class="comp">Las Vegas Global Spirit Awards</div><div class="what">Najbolji Mezcal · Platina, 96/100</div></div><div class="yr">2023</div></div>
+      <div class="aw"><div class="medal">DUPLO<br>ZLATO</div><div><div class="comp">SF World Spirits Competition</div><div class="what">Duplo zlato — nagrađene sve sorte</div></div><div class="yr">2023</div></div>
+      <div class="aw"><div class="medal">BEST IN<br>SHOW</div><div><div class="comp">L.A. Spirits Awards</div><div class="what">Najbolji Mezcal i Best in Show</div></div><div class="yr">2020</div></div>
+      <div class="aw"><div class="medal">PLAT</div><div><div class="comp">SIP Awards</div><div class="what">Platina</div></div><div class="yr">2024</div></div>
+      <div class="aw"><div class="medal">SREBRO</div><div><div class="comp">SF World Design Competition</div><div class="what">Srebro — dizajn boce</div></div><div class="yr">2022</div></div>
+      <div class="aw"><div class="medal">MEDIJI</div><div><div class="comp">Forbes</div><div class="what">Dva puta predstavljen</div></div><div class="yr">—</div></div>
     </div>
-    <p class="aw-note">Accolades as reported by the brand. Official competition badges can be added on request — verify current awards at mrmezcal.com.</p>
+    <p class="aw-note">Priznanja prema navodima brenda. Zvanične takmičarske oznake mogu se dodati na zahtjev — aktuelne nagrade provjerite na mrmezcal.com.</p>
   </div>
 </section>
 
@@ -921,18 +881,18 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
   <div class="wrap">
     <div class="trade-grid">
       <div class="tcard reveal">
-        <p class="eyebrow">For bars &amp; restaurants</p>
-        <h3>A back-bar mezcal that earns its place.</h3>
-        <p>Espadín pours and mixes like a workhorse, while Tobalá, Cuishe, and Tepeztate give your list rare, single-agave expressions worth a feature.</p>
-        <ul><li>One distributor, four varieties, consistent reorders</li><li>A provenance story your staff can tell guests</li><li>Award-winning credibility behind every pour</li></ul>
-        <a class="btn btn-solid" href="#contact">Become an On-Premise Partner <span class="arr">→</span></a>
+        <p class="eyebrow">Za barove i restorane</p>
+        <h3>Mezcal za back bar koji zaslužuje svoje mjesto.</h3>
+        <p>Espadín se toči i miješa kao radni konj, dok Tobalá, Cuishe i Tepeztate vašoj karti daju rijetke izraze iz jedne agave vrijedne isticanja.</p>
+        <ul><li>Jedan distributer, četiri sorte, pouzdane dopune narudžbi</li><li>Priča o porijeklu koju će vaše osoblje pričati gostima</li><li>Nagrađivani kredibilitet iza svakog točenja</li></ul>
+        <a class="btn btn-solid" href="#contact">Postanite ugostiteljski partner <span class="arr">→</span></a>
       </div>
       <div class="tcard reveal">
-        <p class="eyebrow">For liquor stores &amp; retailers</p>
-        <h3>Premium shelf presence, ready to move.</h3>
-        <p>An award-winning, single-source mezcal with a silver-medal bottle design and real press behind it — ideal for liquor stores, grocery alcohol sets, and hotel retail.</p>
-        <ul><li>A differentiated premium SKU with strong margins</li><li>Case and full-pallet quantities from Missouri stock</li><li>Shelf-talker-ready awards and tasting notes</li></ul>
-        <a class="btn btn-solid" href="#contact">Become a Retail Partner <span class="arr">→</span></a>
+        <p class="eyebrow">Za prodavnice pića i trgovce</p>
+        <h3>Premium prisustvo na polici, spremno za prodaju.</h3>
+        <p>Nagrađivani mezcal iz jednog izvora sa srebrnom medaljom za dizajn boce i stvarnim medijskim pokrivanjem — idealan za prodavnice pića, odjele alkohola u trgovinama i hotelsku prodaju.</p>
+        <ul><li>Prepoznatljiv premium proizvod sa snažnim maržama</li><li>Količine u sanducima i punim paletama iz skladišta u Missouriju</li><li>Nagrade i degustacijske bilješke spremne za materijale na polici</li></ul>
+        <a class="btn btn-solid" href="#contact">Postanite maloprodajni partner <span class="arr">→</span></a>
       </div>
     </div>
   </div>
@@ -942,20 +902,20 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section class="sec-2" id="serve">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Who We Serve</p>
-      <h2>Built for the <em>licensed trade.</em></h2>
-      <p class="lead">PF Distribution works exclusively with licensed businesses authorized to purchase alcohol for resale. If you hold a valid license, we'd like to hear from you.</p>
+      <p class="eyebrow">Koga snabdijevamo</p>
+      <h2>Stvoren za <em>licenciranu trgovinu.</em></h2>
+      <p class="lead">PF Distribution sarađuje isključivo s licenciranim firmama ovlaštenim za kupovinu alkohola radi preprodaje. Ako imate važeću licencu, rado ćemo vas upoznati.</p>
     </div>
     <div class="serve-grid reveal">
-      <div class="sv"><div class="svn">Bars</div><div class="svd">Back-bar pours and signature mezcal cocktails.</div></div>
-      <div class="sv"><div class="svn">Restaurants</div><div class="svd">Beverage programs and curated spirit lists.</div></div>
-      <div class="sv"><div class="svn">Hotels</div><div class="svd">Lobby bars, room service, and group programs.</div></div>
-      <div class="sv"><div class="svn">Liquor Stores</div><div class="svd">A premium, award-winning shelf SKU.</div></div>
-      <div class="sv"><div class="svn">Grocery Stores</div><div class="svd">Differentiated stock for spirits sets.</div></div>
-      <div class="sv"><div class="svn">Private Clubs</div><div class="svd">Member bars and reserve selections.</div></div>
-      <div class="sv"><div class="svn">Event Venues</div><div class="svd">Bar service and featured tastings.</div></div>
-      <div class="sv"><div class="svn">Caterers</div><div class="svd">Premium spirits for licensed events.</div></div>
-      <div class="sv"><div class="svn">Other Licensed Retailers</div><div class="svd">Any account licensed to purchase for resale.</div></div>
+      <div class="sv"><div class="svn">Barovi</div><div class="svd">Točenja s back bara i autorski mezcal kokteli.</div></div>
+      <div class="sv"><div class="svn">Restorani</div><div class="svd">Barski programi i pažljivo birane karte pića.</div></div>
+      <div class="sv"><div class="svn">Hoteli</div><div class="svd">Lobi barovi, room service i grupni programi.</div></div>
+      <div class="sv"><div class="svn">Prodavnice pića</div><div class="svd">Nagrađivani premium proizvod za policu.</div></div>
+      <div class="sv"><div class="svn">Trgovine prehrambenom robom</div><div class="svd">Prepoznatljiv asortiman za odjele pića.</div></div>
+      <div class="sv"><div class="svn">Privatni klubovi</div><div class="svd">Barovi za članove i posebne kolekcije.</div></div>
+      <div class="sv"><div class="svn">Prostori za događaje</div><div class="svd">Barske usluge i posebne degustacije.</div></div>
+      <div class="sv"><div class="svn">Ketering</div><div class="svd">Premium pića za licencirane događaje.</div></div>
+      <div class="sv"><div class="svn">Drugi licencirani trgovci</div><div class="svd">Svaki kupac s licencom za kupovinu radi preprodaje.</div></div>
     </div>
   </div>
 </section>
@@ -965,40 +925,40 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
   <div class="wrap">
     <div class="contact-grid">
       <div class="c-side reveal">
-        <p class="eyebrow">Trade Inquiries Only</p>
-        <h2>Contact our distribution team.</h2>
-        <p class="lead">Tell us about your licensed business and our trade team will follow up with information, pricing, and availability. We respond to verified licensed accounts.</p>
+        <p class="eyebrow">Samo poslovni upiti</p>
+        <h2>Kontaktirajte naš distribucijski tim.</h2>
+        <p class="lead">Recite nam nešto o svojoj licenciranoj firmi, a naš prodajni tim javit će se s informacijama, cijenama i dostupnošću. Odgovaramo provjerenim licenciranim kupcima.</p>
         <div class="c-cards">
-          <div class="c-card"><span class="k">Distribution team</span><span class="v"><a href="mailto:gerardo@mrmezcal.mx">gerardo@mrmezcal.mx</a></span></div>
-          <div class="c-card"><span class="k">Phone</span><span class="v"><a href="tel:+16365799374">(636) 579-9374</a></span></div>
-          <div class="c-card"><span class="k">Location</span><span class="v">Williamsburg, Missouri</span></div>
+          <div class="c-card"><span class="k">Distribucijski tim</span><span class="v"><a href="mailto:gerardo@mrmezcal.mx">gerardo@mrmezcal.mx</a></span></div>
+          <div class="c-card"><span class="k">Telefon</span><span class="v"><a href="tel:+16365799374">(636) 579-9374</a></span></div>
+          <div class="c-card"><span class="k">Lokacija</span><span class="v">Williamsburg, Missouri</span></div>
         </div>
-        <p class="c-only">PF Distribution sells alcoholic products only to licensed businesses and approved alcohol retail, hospitality, event, catering, and wholesale accounts. We do not sell directly to individual consumers.</p>
+        <p class="c-only">PF Distribution prodaje alkoholne proizvode isključivo licenciranim firmama i odobrenim kupcima iz maloprodaje alkohola, ugostiteljstva, industrije događaja, keteringa i veleprodaje. Ne prodajemo direktno pojedinačnim potrošačima.</p>
       </div>
 
       <form class="inq" id="inquiryForm" novalidate>
-        <input type="hidden" name="_subject" value="New trade inquiry — PF Distribution">
+        <input type="hidden" name="_subject" value="Novi poslovni upit — PF Distribution">
         <div class="field r2">
-          <div class="field"><label>Business / account name <span class="req">*</span></label><input name="business" required placeholder="e.g. Matatlán Cantina"></div>
-          <div class="field"><label>Contact name <span class="req">*</span></label><input name="contact" required placeholder="Full name"></div>
+          <div class="field"><label>Naziv firme / kupca <span class="req">*</span></label><input name="business" required placeholder="npr. Matatlán Cantina"></div>
+          <div class="field"><label>Kontakt osoba <span class="req">*</span></label><input name="contact" required placeholder="Ime i prezime"></div>
         </div>
         <div class="field r2">
-          <div class="field"><label>Business email <span class="req">*</span></label><input type="email" name="email" required placeholder="you@business.com"></div>
-          <div class="field"><label>Phone</label><input name="phone" placeholder="(000) 000-0000"></div>
+          <div class="field"><label>Poslovni e-mail <span class="req">*</span></label><input type="email" name="email" required placeholder="vi@firma.com"></div>
+          <div class="field"><label>Telefon</label><input name="phone" placeholder="(000) 000-0000"></div>
         </div>
         <div class="field r2">
-          <div class="field"><label>Business type <span class="req">*</span></label>
+          <div class="field"><label>Vrsta djelatnosti <span class="req">*</span></label>
             <select name="biztype" required>
-              <option value="" selected disabled>Select…</option>
-              <option>Bar</option><option>Restaurant</option><option>Hotel</option>
-              <option>Liquor store</option><option>Grocery store</option><option>Private club</option>
-              <option>Event venue</option><option>Caterer</option><option>Other licensed retailer</option>
+              <option value="" selected disabled>Odaberite…</option>
+              <option>Bar</option><option>Restoran</option><option>Hotel</option>
+              <option>Prodavnica pića</option><option>Trgovina prehrambenom robom</option><option>Privatni klub</option>
+              <option>Prostor za događaje</option><option>Ketering</option><option>Drugi licencirani trgovac</option>
             </select>
           </div>
-          <div class="field"><label>State / territory <span class="req">*</span></label><input name="state" required value="Missouri"></div>
+          <div class="field"><label>Država / teritorij <span class="req">*</span></label><input name="state" required value="Missouri"></div>
         </div>
-        <div class="field"><label>Alcohol license # <span class="opt">(optional — speeds up onboarding)</span></label><input name="license" placeholder="State / federal license number"></div>
-        <div class="field"><label>Varieties of interest</label>
+        <div class="field"><label>Broj licence za alkohol <span class="opt">(opcionalno — ubrzava registraciju)</span></label><input name="license" placeholder="Broj državne / savezne licence"></div>
+        <div class="field"><label>Sorte koje vas zanimaju</label>
           <div class="checks">
             <label class="chk"><input type="checkbox" name="variety" value="Espadín"> Espadín</label>
             <label class="chk"><input type="checkbox" name="variety" value="Tobalá"> Tobalá</label>
@@ -1006,14 +966,14 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
             <label class="chk"><input type="checkbox" name="variety" value="Cuishe"> Cuishe</label>
           </div>
         </div>
-        <div class="field"><label>Message</label><textarea name="message" placeholder="Tell us about your account and what you're looking for."></textarea></div>
+        <div class="field"><label>Poruka</label><textarea name="message" placeholder="Recite nam nešto o svom lokalu i šta tražite."></textarea></div>
         <div class="field">
           <label class="consent"><input type="checkbox" name="consent" required>
-            <span>I confirm this inquiry is on behalf of a properly licensed business purchasing alcohol for resale, and that I am 21 years of age or older.</span>
+            <span>Potvrđujem da se ovaj upit podnosi u ime propisno licencirane firme koja kupuje alkohol radi preprodaje i da imam najmanje 21 godinu.</span>
           </label>
         </div>
-        <button type="submit" class="btn btn-solid">Send Wholesale Inquiry</button>
-        <p class="form-foot" id="formFoot">Trade inquiries only · We respond to verified licensed accounts</p>
+        <button type="submit" class="btn btn-solid">Pošaljite veleprodajni upit</button>
+        <p class="form-foot" id="formFoot">Samo poslovni upiti · Odgovaramo provjerenim licenciranim kupcima</p>
       </form>
     </div>
   </div>
@@ -1023,16 +983,16 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 <section class="sec-2" id="compliance">
   <div class="wrap">
     <div class="comp reveal">
-      <p class="eyebrow">Compliance · Three-Tier System</p>
-      <h2>Trade only. Licensed businesses only.</h2>
-      <p><span class="hl">PF Distribution is a licensed alcohol wholesaler based in Williamsburg, Missouri, and the Missouri distribution partner for Mr. Mezcal. We sell only to properly licensed businesses authorized to purchase alcoholic beverages for resale</span> — bars, restaurants, hotels, liquor stores, grocery stores, private clubs, event venues, caterers, and other licensed alcohol retailers. We do not sell directly to consumers, and we do not offer online checkout, consumer pricing, home delivery, or retail sales to the general public.</p>
-      <p>We operate within the three-tier alcohol distribution system — producer, distributor, retailer — and supply only the retailer tier. Product availability is subject to applicable federal, state, and local licensing requirements and may be limited to approved territories. Nothing on this site constitutes an offer to sell where prohibited by law.</p>
-      <p class="small">This page is provided for general information only and is not legal advice.</p>
+      <p class="eyebrow">Usklađenost · Trostepeni sistem</p>
+      <h2>Samo trgovina. Samo licencirane firme.</h2>
+      <p><span class="hl">PF Distribution je licencirani veletrgovac alkoholnim pićima sa sjedištem u Williamsburgu, Missouri, i distribucijski partner brenda Mr. Mezcal za Missouri. Prodajemo isključivo propisno licenciranim firmama ovlaštenim za kupovinu alkoholnih pića radi preprodaje</span> — barovima, restoranima, hotelima, prodavnicama pića, trgovinama prehrambenom robom, privatnim klubovima, prostorima za događaje, ketering kompanijama i drugim licenciranim trgovcima alkoholom. Ne prodajemo direktno potrošačima i ne nudimo online kupovinu, potrošačke cijene, dostavu na kućnu adresu niti maloprodaju za širu javnost.</p>
+      <p>Poslujemo unutar trostepenog sistema distribucije alkohola — proizvođač, distributer, trgovac — i snabdijevamo isključivo maloprodajni nivo. Dostupnost proizvoda podliježe važećim saveznim, državnim i lokalnim zahtjevima za licenciranje i može biti ograničena na odobrene teritorije. Ništa na ovoj stranici ne predstavlja ponudu za prodaju tamo gdje je to zakonom zabranjeno.</p>
+      <p class="small">Ova stranica služi isključivo u informativne svrhe i ne predstavlja pravni savjet.</p>
       <div class="comp-tags">
-        <span class="t">Three-tier compliant</span>
-        <span class="t">Licensed accounts only</span>
-        <span class="t">No direct-to-consumer sales</span>
-        <span class="t">21+ · Please enjoy responsibly</span>
+        <span class="t">Usklađeno s trostepenim sistemom</span>
+        <span class="t">Samo licencirani kupci</span>
+        <span class="t">Bez direktne prodaje potrošačima</span>
+        <span class="t">21+ · Pijte odgovorno</span>
       </div>
     </div>
   </div>
@@ -1045,30 +1005,30 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       <div class="foot-brand">
         <div class="pf">PF Distribution</div>
         <div class="sub">Pistolas Fritas · Williamsburg, Missouri</div>
-        <p>The licensed Missouri distribution partner for Mr. Mezcal. We sell only to licensed trade accounts authorized to purchase alcohol for resale. We do not sell directly to individual consumers.</p>
+        <p>Licencirani distribucijski partner brenda Mr. Mezcal za Missouri. Prodajemo isključivo licenciranim poslovnim kupcima ovlaštenim za kupovinu alkohola radi preprodaje. Ne prodajemo direktno pojedinačnim potrošačima.</p>
       </div>
       <div class="foot-col">
-        <h4>Explore</h4>
-        <a href="#about">The Distributor</a>
-        <a href="#mezcal">About Mr. Mezcal</a>
-        <a href="#mezcals">The Mezcals</a>
-        <a href="#availability">Wholesale inventory</a>
-        <a href="#awards">Awards</a>
+        <h4>Istražite</h4>
+        <a href="#about">Distributer</a>
+        <a href="#mezcal">O Mr. Mezcalu</a>
+        <a href="#mezcals">Mezcali</a>
+        <a href="#availability">Veleprodajne zalihe</a>
+        <a href="#awards">Nagrade</a>
       </div>
       <div class="foot-col">
-        <h4>Trade</h4>
-        <a href="#trade">For bars &amp; restaurants</a>
-        <a href="#trade">For liquor stores &amp; retailers</a>
-        <a href="#serve">Who we serve</a>
-        <a href="#contact">Request trade information</a>
-        <a href="#compliance">Compliance notice</a>
-        <a href="legal.html">Legal &amp; Terms</a>
-        <a href="https://mrmezcal.com" target="_blank" rel="noopener">Brand info: mrmezcal.com ↗</a>
+        <h4>Trgovina</h4>
+        <a href="#trade">Za barove i restorane</a>
+        <a href="#trade">Za prodavnice pića i trgovce</a>
+        <a href="#serve">Koga snabdijevamo</a>
+        <a href="#contact">Zatražite poslovne informacije</a>
+        <a href="#compliance">Napomena o usklađenosti</a>
+        <a href="legal-bs.html">Pravna obavijest i uslovi</a>
+        <a href="https://mrmezcal.com" target="_blank" rel="noopener">Informacije o brendu: mrmezcal.com ↗</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 PF Distribution (Pistolas Fritas). All rights reserved.</span>
-      <span>Product information sourced from mrmezcal.com · <span class="age">You must be 21+ to engage. Please enjoy responsibly.</span></span>
+      <span>© 2026 PF Distribution (Pistolas Fritas). Sva prava zadržana.</span>
+      <span>Informacije o proizvodima s mrmezcal.com · <span class="age">Morate imati najmanje 21 godinu. Pijte odgovorno.</span></span>
     </div>
   </div>
 </footer>
@@ -1422,41 +1382,41 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
 
   function buildText(){
     var vs=Array.prototype.slice.call(f.querySelectorAll('input[name=variety]:checked')).map(function(c){return c.value;}).join(', ')||'—';
-    return 'TRADE INQUIRY — PF Distribution\n'+
+    return 'POSLOVNI UPIT — PF Distribution\n'+
       '--------------------------------\n'+
-      'Business / account: '+f.business.value+'\n'+
-      'Contact: '+f.contact.value+'\n'+
-      'Email: '+f.email.value+'\n'+
-      'Phone: '+(f.phone.value||'—')+'\n'+
-      'Business type: '+f.biztype.value+'\n'+
-      'State / territory: '+f.state.value+'\n'+
-      'License #: '+(f.license.value||'—')+'\n'+
-      'Varieties of interest: '+vs+'\n'+
-      'Message: '+(f.message.value||'—')+'\n\n'+
-      'Confirmed: licensed business purchasing for resale, 21+.';
+      'Firma / kupac: '+f.business.value+'\n'+
+      'Kontakt: '+f.contact.value+'\n'+
+      'E-mail: '+f.email.value+'\n'+
+      'Telefon: '+(f.phone.value||'—')+'\n'+
+      'Vrsta djelatnosti: '+f.biztype.value+'\n'+
+      'Država / teritorij: '+f.state.value+'\n'+
+      'Broj licence: '+(f.license.value||'—')+'\n'+
+      'Sorte koje vas zanimaju: '+vs+'\n'+
+      'Poruka: '+(f.message.value||'—')+'\n\n'+
+      'Potvrđeno: licencirana firma koja kupuje radi preprodaje, 21+.';
   }
 
   f&&f.addEventListener('submit',function(ev){
     ev.preventDefault();
     if(!f.business.value||!f.contact.value||!f.email.value||!f.biztype.value||!f.state.value||!f.consent.checked){
-      foot.textContent='Please complete the required fields and confirm you are a licensed business, 21+.';
+      foot.textContent='Molimo popunite obavezna polja i potvrdite da predstavljate licenciranu firmu, 21+.';
       foot.style.color='var(--copper)';return;
     }
     // Fallback mode: Formspree not configured yet -> open the sender's email app.
     if(FORMSPREE_ID==='YOUR_FORM_ID'){
-      var subject='Trade inquiry — '+f.business.value+' ('+f.state.value+')';
+      var subject='Poslovni upit — '+f.business.value+' ('+f.state.value+')';
       window.location.href='mailto:'+FALLBACK_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(buildText());
-      foot.textContent='Opening your email app to send the inquiry…';
+      foot.textContent='Otvaramo aplikaciju za e-mail radi slanja upita…';
       foot.style.color='var(--agave)';return;
     }
     // Live mode: send to Formspree without leaving the page.
-    foot.textContent='Sending…';foot.style.color='var(--cream-dim)';
+    foot.textContent='Slanje…';foot.style.color='var(--cream-dim)';
     fetch('https://formspree.io/f/'+FORMSPREE_ID,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
       .then(function(r){
-        if(r.ok){window.gtag&&gtag('event','generate_lead');f.reset();foot.textContent='Thank you — your trade inquiry has been sent. Our team will follow up shortly.';foot.style.color='var(--agave)';}
-        else{foot.textContent='Something went wrong — please email '+FALLBACK_EMAIL+' directly.';foot.style.color='var(--copper)';}
+        if(r.ok){window.gtag&&gtag('event','generate_lead');f.reset();foot.textContent='Hvala — vaš poslovni upit je poslan. Naš tim će vam se uskoro javiti.';foot.style.color='var(--agave)';}
+        else{foot.textContent='Nešto je pošlo po zlu — pišite nam direktno na '+FALLBACK_EMAIL+'.';foot.style.color='var(--copper)';}
       })
-      .catch(function(){foot.textContent='Network error — please email '+FALLBACK_EMAIL+' directly.';foot.style.color='var(--copper)';});
+      .catch(function(){foot.textContent='Greška u mreži — pišite nam direktno na '+FALLBACK_EMAIL+'.';foot.style.color='var(--copper)';});
   });
 </script>
 <script>
