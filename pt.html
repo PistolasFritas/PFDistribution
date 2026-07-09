@@ -221,6 +221,10 @@
   .aw .comp{font-family:var(--serif);font-weight:600;font-size:21px;color:var(--cream)}
   .aw .what{font-family:var(--sans);font-size:13px;color:var(--cream-dim);margin-top:3px;letter-spacing:.02em}
   .aw .yr{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--gold)}
+  .aw.aw-primary .comp{color:#fff;font-weight:700;font-size:24px}
+  .aw.aw-primary .what{color:#fff;font-size:13.5px}
+  .aw.aw-secondary .comp{color:#fff;font-weight:600;font-size:19px}
+  .aw.aw-secondary .what{color:rgba(255,255,255,.92)}
   .aw-note{font-family:var(--sans);font-size:11.5px;letter-spacing:.04em;color:var(--cream-dim);margin-top:28px;opacity:.8}
 
   /* Who we serve */
@@ -812,7 +816,8 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       <div class="aw"><div class="medal">OURO<br>DUPLO</div><div><div class="comp">SF World Spirits Competition</div><div class="what">Ouro Duplo — todas as variedades reconhecidas</div></div><div class="yr">2023</div></div>
       <div class="aw"><div class="medal">BEST IN<br>SHOW</div><div><div class="comp">L.A. Spirits Awards</div><div class="what">Melhor Mezcal &amp; Best in Show</div></div><div class="yr">2020</div></div>
       <div class="aw"><div class="medal">PLAT</div><div><div class="comp">SIP Awards</div><div class="what">Platina</div></div><div class="yr">2024</div></div>
-      <div class="aw"><div class="medal">PRATA</div><div><div class="comp">SF World Design Competition</div><div class="what">Prata — Design da garrafa · SIP Awards Platinum — Package Design</div></div><div class="yr">2022</div></div>
+      <div class="aw aw-primary"><div class="medal">PLAT</div><div><div class="comp">SIP Awards Design Competition</div><div class="what">Platinum — Package Design</div></div><div class="yr">2024</div></div>
+      <div class="aw aw-secondary"><div class="medal">PRATA</div><div><div class="comp">San Francisco World Design Competition</div><div class="what">Prata — Design da garrafa</div></div><div class="yr">2022</div></div>
       <div class="aw"><div class="medal">IMPRENSA</div><div><div class="comp">Forbes</div><div class="what">Destaque duas vezes</div></div><div class="yr">—</div></div>
     </div>
     <p class="aw-note">Premiações conforme informado pela marca. Selos oficiais dos concursos podem ser adicionados mediante solicitação — verifique os prêmios atuais em mrmezcal.com.</p>
@@ -1105,13 +1110,14 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       sf:['images/award-sf-1_7.jpg','images/award-sf-2.jpg','images/award-sf-3.jpg'],
       la:['images/award-la-2.jpg','images/award-la-3.jpg'],
       sip:['images/award-sip-1.jpg','images/award-sip-2.jpg','images/award-sip-3.jpg','images/award-sip-4.jpg','images/award-sip-5.jpg'],
-      sfd:['images/award-sf-4.jpg','images/award-sip-2.jpg','images/award-sip-3.jpg']
+      sipd:['images/award-sip-2.jpg','images/award-sip-3.jpg'],
+      sfd:['images/award-sf-4.jpg']
     };
     var FORBES=[
       {u:'https://www.forbes.com/sites/joemicallef/2023/11/02/the-worlds-best-mezcals-from-the-las-vegas-global-spirit-awards/',t:"The World's Best Mezcals From The Las Vegas Global Spirit Awards"},
       {u:'https://www.forbes.com/sites/joemicallef/2023/05/08/the-top-tequila-and-mezcal-from-the-2023-san-francisco-world-spirits-competition/',t:"The Top Tequila And Mezcal From The 2023 San Francisco World Spirits Competition"}
     ];
-    var MAP=['lv','sf','la','sip','sfd','forbes']; /* row order is identical in every language */
+    var MAP=['lv','sf','la','sip','sipd','sfd','forbes']; /* row order is identical in every language */
     var rows=document.querySelectorAll('.awards .aw');if(!rows.length)return;
     /* --- hover preview (desktop): small picture follows the cursor --- */
     var canHover=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
