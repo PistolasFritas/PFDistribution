@@ -929,7 +929,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       },8000);
     },3800);
   })();
-  /* Animated header logo: plays the evolution, holds the final logo frame for 5s, then loops */
+  /* Animated header logo: plays the evolution, holds the final logo frame for 10s, then loops */
   (function(){var v=document.querySelector('.brand-vid');if(!v)return;
     v.muted=true;v.loop=false;v.removeAttribute('loop');
     function toEnd(){try{if(v.duration)v.currentTime=Math.max(0,v.duration-0.05);}catch(e){}v.pause();}
@@ -938,7 +938,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       v.removeAttribute('autoplay');v.autoplay=false;v.pause();
       if(v.readyState>=1)toEnd();else v.addEventListener('loadedmetadata',toEnd);
     }else{
-      v.addEventListener('ended',function(){setTimeout(function(){v.currentTime=0;go();},5000);});
+      v.addEventListener('ended',function(){setTimeout(function(){v.currentTime=0;go();},10000);});
       go();
     }
   })();
