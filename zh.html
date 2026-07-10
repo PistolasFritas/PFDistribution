@@ -1355,17 +1355,17 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       },8000);
     },3800);
   })();
-  /* Animated header logo: plays the evolution once per visit, then rests on the final mark */
+  /* Animated header logo: plays the evolution, holds the final logo frame for 5s, then loops */
   (function(){var v=document.querySelector('.brand-vid');if(!v)return;
-    v.muted=true;
-    var played=false;try{played=sessionStorage.getItem('pfLogoPlayed')==='1';}catch(e){}
+    v.muted=true;v.loop=false;v.removeAttribute('loop');
     function toEnd(){try{if(v.duration)v.currentTime=Math.max(0,v.duration-0.05);}catch(e){}v.pause();}
-    if(rMotion||played){
+    function go(){var p=v.play?v.play():null;if(p&&p.catch)p.catch(function(){});}
+    if(rMotion){
       v.removeAttribute('autoplay');v.autoplay=false;v.pause();
       if(v.readyState>=1)toEnd();else v.addEventListener('loadedmetadata',toEnd);
     }else{
-      v.addEventListener('ended',function(){try{sessionStorage.setItem('pfLogoPlayed','1');}catch(e){}});
-      var p=v.play?v.play():null;if(p&&p.catch)p.catch(function(){});
+      v.addEventListener('ended',function(){setTimeout(function(){v.currentTime=0;go();},5000);});
+      go();
     }
   })();
 
