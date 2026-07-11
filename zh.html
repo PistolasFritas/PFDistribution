@@ -343,6 +343,7 @@
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
+  .mz-ph img[src*="cuishe.jpg"]{object-fit:contain}
   html,body{overflow-x:clip}
   @supports not (overflow:clip){html,body{overflow-x:hidden}}
   /* Responsive */
@@ -1238,11 +1239,11 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
     var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
     var S1=sprite(fine?'rgba(146,144,139,0.5)':'rgba(152,150,144,0.58)'),S2=sprite(fine?'rgba(96,94,90,0.42)':'rgba(108,104,99,0.48)');
-    var P=[],MAX=fine?90:36,running=false,lastAmb=0;
+    var P=[],MAX=fine?90:30,running=false,lastAmb=0;
     function puff(x,y,amb){if(P.length>=MAX){P.shift();}
       var a=Math.random()*Math.PI*2;
       P.push({x:x,y:y,vx:Math.cos(a)*(amb?0.08:0.25),vy:-(0.25+Math.random()*(amb?0.3:0.45)),
-        r:(amb&&!fine?32:(amb?26:14))+Math.random()*(amb&&!fine?22:18),gr:0.10+Math.random()*0.12,
+        r:(amb&&!fine?28:(amb?26:14))+Math.random()*(amb&&!fine?20:18),gr:0.10+Math.random()*0.12,
         life:0,max:(amb?340:220)+Math.random()*120,
         sp:Math.random()<0.32?S2:S1,ph:Math.random()*6.28,w:0.004+Math.random()*0.006});}
     function loop(ts){
@@ -1251,7 +1252,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       for(var i=P.length-1;i>=0;i--){var p=P[i];p.life++;
         if(p.life>p.max){P.splice(i,1);continue;}
         p.ph+=p.w;p.x+=p.vx+Math.sin(p.ph+p.y*0.004)*0.35;p.y+=p.vy;p.r+=p.gr;
-        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*(fine?0.3:0.4);
+        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*(fine?0.3:0.34);
         cx.globalAlpha=al;cx.drawImage(p.sp,p.x-p.r,p.y-p.r,p.r*2,p.r*2);}
       cx.globalAlpha=1;requestAnimationFrame(loop);
     }
@@ -1266,7 +1267,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       if(document.hidden)return;
       var y=window.pageYOffset||0;
       if(y<innerHeight*1.15){puff(innerWidth*(0.28+Math.random()*0.44),innerHeight*0.94,true);wake();}
-    },fine?1600:650);
+    },fine?1600:800);
     document.addEventListener('visibilitychange',function(){if(document.hidden){P.length=0;}});
   })();
   /* Magnetic CTAs: buttons lean toward the cursor */
