@@ -839,7 +839,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       <div class="aw"><div class="medal">PLATA</div><div><div class="comp">SF World Design Competition</div><div class="what">Plata — Diseño de Botella</div></div><div class="yr">2022</div></div>
       <div class="aw"><div class="medal">PRENSA</div><div><div class="comp">Forbes</div><div class="what">Destacado dos veces</div></div><div class="yr">—</div></div>
     </div>
-    <p class="aw-note">Los detalles de los premios y los resultados completos de las competencias están disponibles en el sitio oficial de la marca, <a href="https://mrmezcal.com" target="_blank" rel="noopener" style="color:inherit">mrmezcal.com</a>.</p>
+    <p class="aw-note">Detalles completos de premios y concursos en <a href="https://mrmezcal.com" target="_blank" rel="noopener" style="color:inherit">mrmezcal.com</a>.</p>
   </div>
 </section>
 
@@ -973,7 +973,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
         <div class="pf">PF Distribution</div>
         <div class="sub">Williamsburg, Missouri</div>
         <p>El socio de distribución con licencia de Mr. Mezcal en Missouri. Vendemos únicamente a cuentas comerciales licenciadas autorizadas a comprar alcohol para reventa — nunca directamente a consumidores.</p>
-        <p class="legal" style="margin-top:14px">PF Distribution es operada por Pistolas Fritas LLC, un mayorista de alcohol con licencia en Missouri.</p>
+        <p class="legal" style="margin-top:14px">PF Distribution es operada por Pistolas Fritas LLC, un mayorista de alcohol con licencia en Missouri. Liquor Solicitor License No. 275520 · Liquor Wholesale Solicitor License No. 275521.</p>
       </div>
       <div class="foot-col">
         <h4>Explorar</h4>
@@ -1239,12 +1239,12 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       r.addColorStop(0,color);r.addColorStop(1,'rgba(0,0,0,0)');
       g.fillStyle=r;g.fillRect(0,0,128,128);return s;}
     var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
-    var S1=sprite(fine?'rgba(146,144,139,0.5)':'rgba(160,158,152,0.68)'),S2=sprite(fine?'rgba(96,94,90,0.42)':'rgba(120,116,110,0.58)');
-    var P=[],MAX=fine?90:52,running=false,lastAmb=0;
+    var S1=sprite(fine?'rgba(146,144,139,0.5)':'rgba(152,150,144,0.58)'),S2=sprite(fine?'rgba(96,94,90,0.42)':'rgba(108,104,99,0.48)');
+    var P=[],MAX=fine?90:36,running=false,lastAmb=0;
     function puff(x,y,amb){if(P.length>=MAX){P.shift();}
       var a=Math.random()*Math.PI*2;
       P.push({x:x,y:y,vx:Math.cos(a)*(amb?0.08:0.25),vy:-(0.25+Math.random()*(amb?0.3:0.45)),
-        r:(amb&&!fine?40:(amb?26:14))+Math.random()*(amb&&!fine?30:18),gr:0.10+Math.random()*0.12,
+        r:(amb&&!fine?32:(amb?26:14))+Math.random()*(amb&&!fine?22:18),gr:0.10+Math.random()*0.12,
         life:0,max:(amb?340:220)+Math.random()*120,
         sp:Math.random()<0.32?S2:S1,ph:Math.random()*6.28,w:0.004+Math.random()*0.006});}
     function loop(ts){
@@ -1253,7 +1253,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
       for(var i=P.length-1;i>=0;i--){var p=P[i];p.life++;
         if(p.life>p.max){P.splice(i,1);continue;}
         p.ph+=p.w;p.x+=p.vx+Math.sin(p.ph+p.y*0.004)*0.35;p.y+=p.vy;p.r+=p.gr;
-        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*(fine?0.3:0.55);
+        var t=p.life/p.max,al=(t<0.18?t/0.18:1-(t-0.18)/0.82)*(fine?0.3:0.4);
         cx.globalAlpha=al;cx.drawImage(p.sp,p.x-p.r,p.y-p.r,p.r*2,p.r*2);}
       cx.globalAlpha=1;requestAnimationFrame(loop);
     }
@@ -1267,8 +1267,8 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     setInterval(function(){
       if(document.hidden)return;
       var y=window.pageYOffset||0;
-      if(y<innerHeight*1.3){puff(innerWidth*(0.25+Math.random()*0.5),innerHeight*0.94,true);wake();}
-    },fine?1600:420);
+      if(y<innerHeight*1.15){puff(innerWidth*(0.28+Math.random()*0.44),innerHeight*0.94,true);wake();}
+    },fine?1600:650);
     document.addEventListener('visibilitychange',function(){if(document.hidden){P.length=0;}});
   })();
   /* Magnetic CTAs: buttons lean toward the cursor */
@@ -1294,46 +1294,23 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     addEventListener('resize',function(){if(!tick){tick=true;requestAnimationFrame(paint);}},{passive:true});
     paint();
   })();
-  /* Hero campaign rotation: bottle -> palenque -> warehouse, slow dissolves */
-  (function(){if(rMotion)return;var hb=document.querySelector('.hero-img');if(!hb)return;
-    var base=hb.querySelector('img');if(!base)return;
-    var chip=hb.querySelector('.ph-chip');
-    var SC=[[null,'Mr. Mezcal \u00B7 Single Source'],
-            ['images/maestros.jpg?v=2','Santiago Matatl\u00E1n \u00B7 Oaxaca'],
-            ['images/og-image.jpg','Williamsburg \u00B7 Missouri']];
-    setTimeout(function(){
-      base.style.opacity='1';
-      var imgs=[base];
-      for(var i=1;i<SC.length;i++)(function(i){
-        var im=document.createElement('img');im.alt='';im.decoding='async';
-        im.style.opacity='0';im.style.zIndex='1';
-        im.onerror=function(){im.setAttribute('data-bad','1');};
-        im.src=SC[i][0];
-        hb.insertBefore(im,chip||null);imgs.push(im);
-      })(i);
-      var cur=0;
-      setInterval(function(){
-        var nxt=(cur+1)%imgs.length,g=0;
-        while(imgs[nxt].getAttribute('data-bad')&&g<3){nxt=(nxt+1)%imgs.length;g++;}
-        if(nxt===cur)return;
-        imgs[cur].style.opacity='0';imgs[nxt].style.opacity='1';
-        if(chip&&SC[nxt][1])chip.textContent=SC[nxt][1];
-        cur=nxt;
-      },8000);
-    },3800);
-  })();
-  /* Animated header logo: plays the evolution once per visit, then rests on the final mark */
+  /* Animated header logo: play through, rest on the final frame for 10s, then loop */
   (function(){var v=document.querySelector('.brand-vid');if(!v)return;
-    v.muted=true;
-    var played=false;try{played=sessionStorage.getItem('pfLogoPlayed')==='1';}catch(e){}
+    v.muted=true;v.loop=false;v.setAttribute('playsinline','');v.setAttribute('muted','');
     function toEnd(){try{if(v.duration)v.currentTime=Math.max(0,v.duration-0.05);}catch(e){}v.pause();}
-    if(rMotion||played){
+    if(rMotion){
       v.removeAttribute('autoplay');v.autoplay=false;v.pause();
       if(v.readyState>=1)toEnd();else v.addEventListener('loadedmetadata',toEnd);
-    }else{
-      v.addEventListener('ended',function(){try{sessionStorage.setItem('pfLogoPlayed','1');}catch(e){}});
-      var p=v.play?v.play():null;if(p&&p.catch)p.catch(function(){});
+      return;
     }
+    function go(){var p=v.play?v.play():null;if(p&&p.catch)p.catch(function(){});}
+    v.addEventListener('ended',function(){
+      setTimeout(function(){try{v.currentTime=0;}catch(e){}go();},10000);
+    });
+    var kick=function(){if(v.paused&&!v.ended)go();};
+    addEventListener('touchstart',kick,{passive:true,once:true});
+    addEventListener('click',kick,{once:true});
+    go();
   })();
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
