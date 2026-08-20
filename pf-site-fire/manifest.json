@@ -1,0 +1,13 @@
+{
+  "name": "PF Distribution — Missouri Distribution Partner for Mr. Mezcal",
+  "short_name": "PF Distribution",
+  "description": "Licensed Missouri wholesaler and exclusive distribution partner for Mr. Mezcal. Licensed trade accounts only.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0e0c0a",
+  "theme_color": "#0e0c0a",
+  "icons": [
+    { "src": "images/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
