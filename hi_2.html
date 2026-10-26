@@ -489,9 +489,12 @@
   .music-band h2{margin:14px 0 12px}
   .music-band .lead{max-width:62ch}
   .mus-pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .mus-pills a{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid var(--hair);border-radius:2px;padding:14px 22px;transition:border-color .25s,color .25s,background .25s}
-  .mus-pills a:hover{border-color:var(--copper);color:var(--copper);background:rgba(194,116,58,.06)}
+  .mus-pills a{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid var(--hair);border-radius:2px;padding:14px 22px;transition:border-color .25s,color .25s,background .25s,box-shadow .25s}
+  .mp-spotify{--pc:#1DB954}.mp-apple{--pc:#FA243C}.mp-amazon{--pc:#25D1DA}.mp-iheart{--pc:#ED1C24}.mp-youtube{--pc:#FF0000}
+  .mus-pills a:hover{border-color:var(--pc,var(--copper));background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--pc,var(--copper)),0 0 22px -4px var(--pc,var(--copper))}
+  .mus-pills a:hover .ar{color:var(--pc,var(--copper))}
   .mus-pills .ar{color:var(--copper);font-size:13px}
+  .mus-pills .mic{width:18px;height:18px;border-radius:4px;flex:none}
   /* ===== Award medal gallery (lightbox) ===== */
   .aw.has-g{cursor:pointer;transition:background .3s ease;border-radius:4px}
   .aw.has-g:hover{background:var(--hair-2)}
@@ -759,7 +762,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
             <div class="nrow"><span class="nk">स्वाद</span><span class="nv">गोल और संतुलित — पका अनानास, खट्टे फल, हल्का नमकीनपन।</span></div>
             <div class="nrow"><span class="nk">समापन</span><span class="nv">गर्म और समतल, कॉकटेल के लिए उपयुक्त।</span></div>
           </div>
-          <span class="tag" style="color:var(--gold,#C9A227)">गोल्ड मेडल · The Fifty Best 2026</span> <span class="tag">मुख्य स्टॉक</span>
+          <span class="tag" style="color:var(--gold,#C9A227)">सर्वश्रेष्ठ मेज़्कल एवं बेस्ट इन शो · L.A. Spirits Awards 2020</span> <span class="tag">मुख्य स्टॉक</span>
         </div>
       </article>
 
@@ -810,7 +813,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
             <div class="nrow"><span class="nk">स्वाद</span><span class="nv">गहन और परतदार — पका आम, हरी मिर्च, हर्बल गहराई।</span></div>
             <div class="nrow"><span class="nk">समापन</span><span class="nv">फैला हुआ और मिर्चीला।</span></div>
           </div>
-          <span class="tag">दुर्लभ · सीमित स्टॉक</span>
+          <span class="tag" style="color:var(--gold,#C9A227)">गोल्ड मेडल · The Fifty Best 2026</span> <span class="tag">दुर्लभ · सीमित स्टॉक</span>
         </div>
       </article>
 
@@ -886,7 +889,7 @@ if(window.GA_ID!=='G-XXXXXXXXXX'){
     <p class="eyebrow gold">Mr. Mezcal संगीत</p>
     <h2><em>मेज़्कल की शामों</em> के लिए बना संगीत।</h2>
     <p class="lead">Mr. Mezcal के ओरिजिनल ट्रैक — आपके बार की प्लेलिस्ट, आयोजनों और महफ़िलों के लिए तैयार। प्लेटफ़ॉर्म चुनें और प्ले दबाएँ।</p>
-    <div class="mus-pills"><a href="https://open.spotify.com/artist/0ICo4tfqtnzRPaOxI9WeNq" target="_blank" rel="noopener">Spotify<span class="ar">↗</span></a><a href="https://music.apple.com/us/artist/mr-mezcal/6784899548" target="_blank" rel="noopener">Apple Music<span class="ar">↗</span></a><a href="https://music.amazon.com/artists/B0H6S5QD95/mr-mezcal" target="_blank" rel="noopener">Amazon Music<span class="ar">↗</span></a><a href="https://www.iheart.com/artist/mr-mezcal-51191485" target="_blank" rel="noopener">iHeartRadio<span class="ar">↗</span></a><a href="https://www.youtube.com/channel/UCIY7IOEpDJ2k042ERFBLgKQ" target="_blank" rel="noopener">YouTube<span class="ar">↗</span></a></div>
+    <div class="mus-pills"><a class="mp-spotify" href="https://open.spotify.com/artist/0ICo4tfqtnzRPaOxI9WeNq" target="_blank" rel="noopener"><img class="mic" src="https://www.google.com/s2/favicons?domain=open.spotify.com&sz=64" alt="" width="18" height="18" loading="lazy" onerror="this.style.display='none'">Spotify<span class="ar">↗</span></a><a class="mp-apple" href="https://music.apple.com/us/artist/mr-mezcal/6784899548" target="_blank" rel="noopener"><img class="mic" src="https://www.google.com/s2/favicons?domain=music.apple.com&sz=64" alt="" width="18" height="18" loading="lazy" onerror="this.style.display='none'">Apple Music<span class="ar">↗</span></a><a class="mp-amazon" href="https://music.amazon.com/artists/B0H6S5QD95/mr-mezcal" target="_blank" rel="noopener"><img class="mic" src="https://www.google.com/s2/favicons?domain=music.amazon.com&sz=64" alt="" width="18" height="18" loading="lazy" onerror="this.style.display='none'">Amazon Music<span class="ar">↗</span></a><a class="mp-iheart" href="https://www.iheart.com/artist/mr-mezcal-51191485" target="_blank" rel="noopener"><img class="mic" src="https://www.google.com/s2/favicons?domain=www.iheart.com&sz=64" alt="" width="18" height="18" loading="lazy" onerror="this.style.display='none'">iHeartRadio<span class="ar">↗</span></a><a class="mp-youtube" href="https://www.youtube.com/channel/UCIY7IOEpDJ2k042ERFBLgKQ" target="_blank" rel="noopener"><img class="mic" src="https://www.google.com/s2/favicons?domain=www.youtube.com&sz=64" alt="" width="18" height="18" loading="lazy" onerror="this.style.display='none'">YouTube<span class="ar">↗</span></a></div>
   </div>
 </section>
 
